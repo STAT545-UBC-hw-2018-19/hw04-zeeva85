@@ -1,0 +1,64 @@
+---
+title: "hw04_gapminder"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+author: Seevasant Indran
+output: github_document
+fig_caption: yes
+keep_md: TRUE
+---
+
+Packages required
+-----------------
+
+-   [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [maps](https://cran.r-project.org/web/packages/maps/index.html), [tibble](http://tibble.tidyverse.org/))
+    -   Install by running 'install.packages("tidyverse", dependencies = TRUE)'
+
+Functions used
+--------------
+
+-   **%&gt;%** - Syntactic sugar for easily piping the result of one function into another.
+-   **ggplot2::ggplot()** - Base function for using ggplot2. Lays out the invisible 'canvas' for graphing.
+-   **ggplot2::geom\_point()** - Geom function for drawing data points in scatterplots.
+-   **ggplot2::geom\_bar()** - Geom function for drawing bars in bar graphs.
+-   **ggplot2::geom\_boxplot()** - Geom function for drawing box plots.
+-   **ggplo2::geom\_map()** - Geom function for polygons from a reference map
+-   **ggplot2::facet\_wrap()** - ggplot2 function for separating factor levels into multiple graphs.
+-   **ggplot2::xlab()** - Manually set x-axis label.
+-   **ggplot2::ylab()** - Manually set y-axis label.
+-   **dplyr::group\_by()** - Commonly used with summarize() to derive summarized values for multiple rows sharing certain attribues, e.g. Average fuel consumption rates of different car manufacturer.
+-   **dplyr::summarize()** - Commonly used with summarize() to derive summarized values for multiple rows sharing certain attribues.
+-   **reshape::melt()** - Changes a rectangular data into the long format.
+-   **knitr::kable()** - Changes a rectangular data into the long format.
+
+
+```{r setup, global_options, include=FALSE}
+ # assign TRUE and FALSE value to a variable for chunk evaluation
+ev_True = TRUE
+ev_False = FALSE
+
+knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='figs/',
+                      echo=T, warning=T, message=T)
+```
+
+
+### Install, load packages and assign dataset
+
+# ```{r loadchunk, message=FALSE}
+# if (ev_False) {
+#   install.packages("tidyverse")
+#   install.packages("gapminder")
+#   install.packages("reshape2")
+#   install.packages("knitr")
+#   install.packages("maps")
+# }
+# 
+# if (ev_True) {
+#   library(tidyverse)
+#   library(gapminder)
+#   library(reshape2)
+#   library(knitr)
+#   library(maps)
+#   library(gridExtra)
+}
+
+```
