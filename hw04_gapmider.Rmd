@@ -55,7 +55,7 @@ The fundamental processes to follow to understand the knowledge and insight a da
 1. **Data manipulation**
 2. Data visualization
 3. Statistical analysis/modeling
-4. Organization of results
+4. Organization of results  
 
 #### Why Data Manipulation
 
