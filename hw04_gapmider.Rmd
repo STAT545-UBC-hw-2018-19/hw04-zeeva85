@@ -1,64 +1,397 @@
 ---
-title: "hw04_gapminder"
+title: "Homework 04: Tidy data and joins"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 author: Seevasant Indran
 output: github_document
-fig_caption: yes
 keep_md: TRUE
 ---
 
-Packages required
------------------
+```{r message=FALSE, include=FALSE}
 
--   [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [maps](https://cran.r-project.org/web/packages/maps/index.html), [tibble](http://tibble.tidyverse.org/))
-    -   Install by running 'install.packages("tidyverse", dependencies = TRUE)'
+library(tidyverse)
+library(gapminder)
+library(readxl)
+library(readr)
+library(knitr)
+library(gridExtra)
 
-Functions used
---------------
-
--   **%&gt;%** - Syntactic sugar for easily piping the result of one function into another.
--   **ggplot2::ggplot()** - Base function for using ggplot2. Lays out the invisible 'canvas' for graphing.
--   **ggplot2::geom\_point()** - Geom function for drawing data points in scatterplots.
--   **ggplot2::geom\_bar()** - Geom function for drawing bars in bar graphs.
--   **ggplot2::geom\_boxplot()** - Geom function for drawing box plots.
--   **ggplo2::geom\_map()** - Geom function for polygons from a reference map
--   **ggplot2::facet\_wrap()** - ggplot2 function for separating factor levels into multiple graphs.
--   **ggplot2::xlab()** - Manually set x-axis label.
--   **ggplot2::ylab()** - Manually set y-axis label.
--   **dplyr::group\_by()** - Commonly used with summarize() to derive summarized values for multiple rows sharing certain attribues, e.g. Average fuel consumption rates of different car manufacturer.
--   **dplyr::summarize()** - Commonly used with summarize() to derive summarized values for multiple rows sharing certain attribues.
--   **reshape::melt()** - Changes a rectangular data into the long format.
--   **knitr::kable()** - Changes a rectangular data into the long format.
-
-
-```{r setup, global_options, include=FALSE}
- # assign TRUE and FALSE value to a variable for chunk evaluation
-ev_True = TRUE
-ev_False = FALSE
-
-knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='figs/',
-                      echo=T, warning=T, message=T)
 ```
 
 
-### Install, load packages and assign dataset
+## A not so minimal guide to `dplyr` and `tidyr`.
 
-# ```{r loadchunk, message=FALSE}
-# if (ev_False) {
-#   install.packages("tidyverse")
-#   install.packages("gapminder")
-#   install.packages("reshape2")
-#   install.packages("knitr")
-#   install.packages("maps")
-# }
+The fundamental processes to follow to understand the knowledge and insight a data provides are:
+
+1. **Data manipulation**
+2. Data visualization
+3. Statistical analysis/modeling
+4. Organization of results
+
+#### Why Data Manipulation
+
+> 80% of data analysis is spent on the process of cleaning and preparing the data. (Dasu and Johnson, 2003)
+
+**Makes data compatible for processing such as mathematical functions, visualization, hence reveals information and insights.**
+
+Hadley Wickham’s paper on Tidy Data provides a great explanation behind the concept of “tidy data”
+
+
+#### Examples of a **Messy data** vs some **Tidy data**
+
+picture mesy vs tidy data
+
+According to Hadley:-
+
+> Tidy data makes it easy for an analyst or a computer to extract needed variables because it provides a standard way of structuring a dataset. Compare. Table 3 to Table 1: in Table 1 you need to use different strategies to extract different variables. This slows analysis and invites errors. If you consider how many data analysis operations involve all of the values in a variable (every aggregation function), you can see how important it is to extract these values in a simple, standard way. Tidy data is particularly well suited for vectorised programming languages like R, because the layout ensures that values of different variables from the same observation are always paired.
+
+### A `dplyr` walkthrough
+
+
+# Summary of the dplyr Functions
+
+#### Quick data.frame
+
+`tbl_df`
+
+#### The most useful `dplyr` function
+
+1. `filter`
+2. `select`
+3. `mutate`
+4. `group_by`
+5. `summarise`
+6. `arrange`
+7. `rename`
+
+#### the pipe operator
+
+`%>%`
+
+# Relating the Functions
+
+### Tibble diff 
+
+`tbl_df` works similar to `data.table` in that it prints sensibly. Use `as_tibble()`
+
+### {base} `R` and `dplyr` 
+
+List of dplyr functions and the base functions they're related to:
+
+Base Function    | dplyr Function(s) | Special Powers
+---------------------|-----------------------|-----------------------------
+`subset`             |  `filter` & `select`  | filter rows & select columns
+`transform `         |  `mutate`             | operate with columns not yet created
+`split`              |  `group_by`           | splits without cutting
+`lapply` + `do.call` |  `summarise`          | apply and bind in a single bound
+`order` + `with`     |  `arrange`            | "I only have to specify dataframe once?"
+
+### Chaining
+
+`%>%` works similiarly to the `unix` pipe `|` and the `+` in `ggplot2`.
+
+pic
+
+*Basically previous input in chain supplied as argument 1 to function on right side.*
+
+
+# The 7 dplyr Functions
+
+### Tibble diff
+
+`tbl_df`
+
+---
+
+### 7 most important `dplyr` for data manipulation
+
+#### **`filter`**
+  - Return Rows With Matching Conditions
+    - Useful Filter Functions
+        - `==`, `>`, `>=`
+        - `&`, `|`, `!`, `xor()`
+        - `is.na()`, `!is.na()`
+       - `between()`, `%in%`  
+  
+Ussage - **`filter(.data, ...)`**  
+  -   Use `filter()` find rows/cases where conditions are true. Unlike base subsetting with `[`, rows where the condition evaluates to `NA` are dropped. 
+
+---
+  
+#### **`select`** 
+  - Select/Rename Variables By Name.
+    - Useful Filter Functions
+        - `contains(match)`, `num_range(prefix, range)`
+        - `ends_with(match)`, `one_of(...)`
+        - `matches(matxh)`, `starts_with(match)`
+  
+Ussage - **`select_(.data, ...)`**  
+  - As well as using existing functions like `:` and `c`, there are a number of special functions that only work inside select. To drop variables, use `-`. `select()` keeps only the variables mentioned; `rename()` keeps all variables.
+
+---
+  
+#### **`mutate`**
+  - Add New Variables.  
+  
+Ussage - **`mutate_(.data, ...)`**  
+   - Mutate adds new variables and preserves existing; transmute drops existing variables.
+
+---
+  
+#### **`group_by`**
+  - Group By One Or More Variables
+    - Useful Filter Functions
+        - `==`, `>`, `>=`
+        - `&`, `|`, `!`, `xor()`
+        - `is.na()`, `!is.na()`
+        - `between()`, `%in%`
+  
+Ussage - **`group_by(.data, ..., add = FALSE)`**  
+  - When add = FALSE, the default, group_by() will override existing groups. To add to the existing groups, use add = TRUE. Most data operations are done on groups defined by variables. `group_by()` takes an existing tbl and converts it into a grouped tbl where operations are performed "by group". `ungroup()` removes grouping. 
+
+---  
+
+#### **`summarise`**
+  - Reduces Multiple Values Down To A Single Value
+    - Useful Filter Functions
+        - Center: `mean()`, `median()`
+        - Spread: `sd()`, `IQR()`, `mad()`
+        - Range: `min()`, `max()`, `quantile()`
+        - Position: `first()`, `last()`, `nth()`
+        - Count: `n()`, `n_distinct()`
+        - Logical: `any()`
+  
+Ussage - **`summarise(.data, ...)`**  
+  - `summarise()` is typically used on grouped data created by `group_by()`. The output will have one row for each group. 
+
+---
+  
+#### **`arrange`**
+  - Arrange Rows By Variables. 
+  
+Ussage - **`arrange(.data, ..., .by_group = FALSE)`**  
+  - Use desc() to sort a variable in descending order.
+
+  
+**The `dplyr` functions above when applied to a `data frame`, row names are silently dropped. To preserve, convert to an explicit variable with `tibble::rownames_to_column()`.**
+
+---  
+
+#### **`rename`**
+  - Modify Names By Name, Not Position.
+  
+Ussage - **`rename(x, replace, warn_missing = TRUE, warn_duplicated = TRUE)`**  
+  - warn_missing = TRUE, print a message if any of the old names are not actually present in x.
+warn_duplicated - TRUE print a message if any name appears more than once in x after the operation.
+
+---
+
+#### Import datasets using the `readr` and the `{base}` `r` functions.
+
+```{r importchunk}
+
+options(readr.num_columns = 0) 
+
+# Import using the read_csv(), assign to `gapminder_school` variable. Lets call this school dataset
+
+gapminder_school <- read.csv("https://query.data.world/s/bpbbjyj7t6k2u6owizb7tr4fm4h4fq", 
+                             header = TRUE, check.names = FALSE) 
+gapminder_mortality <- read_csv(file.path(getwd(), "Infant mortality rate per 1 000 births.csv"), col_names = TRUE)
+
+```
+
+```{r dataheadchunk}
+dim(gapminder_school) # dimension of the data, 175 countries and 41 years
+```
+
+```{r}
+
 # 
-# if (ev_True) {
-#   library(tidyverse)
-#   library(gapminder)
-#   library(reshape2)
-#   library(knitr)
-#   library(maps)
-#   library(gridExtra)
-}
+# gapminder_mortality_filtered <- gapminder_mortality %>% 
+#   filter(country %in% gapminder$country)
+# 
+# (nrow(gapminder_mortality) - nrow(gapminder_mortality_filtered))
+# 
+# gapminder_mortality$country[which(!gapminder_mortality$country %in% gapminder_mortality_filtered$country)] %>% kable()
+# 
+# global_carbon <-readxl::read_xlsx(file.path(getwd(),"export_20181007_2016.xlsx"),  col_names = TRUE, skip = 1) 
+#   
+# names(global_carbon) <-  c("", names(global_carbon)[-1])
+# remove_rownames(global_carbon)
+# 
+# global_carbon <- as.tibble(t(global_carbon))
+# 
+# names(global_carbon)
+# 
 
 ```
+
+
+# Demos
+
+### Tibble diff
+
+```{r dfchunk}
+
+gapminder_school_df <- as.data.frame(gapminder_school) # change to dataframe for example
+head(gapminder_school_df, n = 3) # displays (n = 3) the top dataset
+```
+
+This prints okay but the next one looks better, as explained above rownames are dropped, to preserve, convert to an explicit variable with `rownames_to_column()`
+
+```{r tbldiffchunk}
+gapminder_school_tbl <- tbl_df(gapminder_school_df) # convert data into tibble diff
+head(rownames_to_column(gapminder_school_tbl), n = 3)
+```
+
+
+### rename
+
+Use the `dplyr::rename` to rename the "Row Labels"" column to "country""
+
+
+```{r renamechunk, warning=FALSE}
+## The dplyr way, rename "Row Labels" to "country" in school dataset
+gapminder_school <- gapminder_school %>%
+  rename(country = "Row Labels")
+
+## The base R way is more complicated, rename column `Row Lables` to `country` AND rename the remaining column minus the first column as it was previously.
+
+# names(gapminder_school) <- c("country", names(gapminder_school)[-1]) 
+
+# or 
+
+# colnames(gapminder_school)[colnames(gapminder_school)=="Row Labels"] <- "country"
+
+head(gapminder_school, n= 2)
+
+```
+
+
+### filter()
+
+```{r filterchunk}
+## School dataset has more countries (175) that the gapminder dataset, filter country from "gapminder_school" dataset with gapminder, to removed countries not in both dataset
+
+gapminder_school_filtered <- gapminder_school %>% 
+  filter(country %in% gapminder$country)
+
+## How many country are filtered ?
+
+(nrow(gapminder_school) - nrow(gapminder_school_filtered))
+
+```
+
+
+
+### select()
+
+
+```{r selectchunk}
+## The gapminder dataset has year till 2007, however the school dataset has year till 2009. Use select to filter the dates till 2007
+
+gapminder_school_filtered <- gapminder_school_filtered %>% 
+  select("country",as.character(unique(gapminder$year)[-c(1:4)])) # selects the first column and the years present from the gapminder dataset.
+
+head(gapminder_school_filtered)
+
+```
+
+Now we have a matching year but we have a problem, our dataset is not in tidy format. We have to fix that later its difficult to work with a messydataset. For example.
+
+### arrange()
+
+```{r arrangechunk, message=FALSE}
+gapminder_school_filtered %>%
+  arrange (`2007`) %>% # arrange mean by lowest to highest
+  head (n = 5)
+```
+
+Some live commetary.. Look at Niger, mean years in school for people aged between 25 - 34 is just 2.5 years!! in 2007.
+
+
+### chaining()
+
+
+```{r chaininhchunk}
+
+## {base} R way to filter countries that are in both gapminder and gapminder school dataset and store into country
+cntry <- unique(gapminder$country)[unique(gapminder$country) %in% # %in% same as match()
+                                 gapminder_school_filtered$country] # This returns a logical vector. It is then used to subsets the gapminder country dataset 
+
+## This subsets the gapminder dataset 
+gpmd_cont <- gapminder %>% 
+  filter(country %in% cntry) %>% 
+  subset(!duplicated(country)) %>% 
+  select("country","continent")
+```
+
+### mutate()
+
+
+```{r mutatechunk}
+
+gapminder_school_filtered <- gapminder_school_filtered %>%
+  mutate(continent = gpmd_cont$continent)
+
+```
+
+
+### summarise()
+
+```{r sumarisechunk}
+
+gapminder_school_filtered %>% 
+  summarise("1972" = mean(gapminder_school_filtered$`1972`),
+            "1977" = mean(gapminder_school_filtered$`1977`),
+            "1982" = mean(gapminder_school_filtered$`1982`),
+            "1987" = mean(gapminder_school_filtered$`1987`),
+            "1992" = mean(gapminder_school_filtered$`1992`),
+            "1997" = mean(gapminder_school_filtered$`1997`),
+            "2002" = mean(gapminder_school_filtered$`2002`),
+            "2007" = mean(gapminder_school_filtered$`2007`),
+            ) 
+
+```
+
+### group_by()
+
+
+```{r groupbychunk}
+gapminder_school_filtered %>% 
+  group_by(continent) %>% 
+  summarise("1972" = mean(gapminder_school_filtered$`1972`),
+            "1977" = mean(gapminder_school_filtered$`1977`),
+            "1982" = mean(gapminder_school_filtered$`1982`),
+            "1987" = mean(gapminder_school_filtered$`1987`),
+            "1992" = mean(gapminder_school_filtered$`1992`),
+            "1997" = mean(gapminder_school_filtered$`1997`),
+            "2002" = mean(gapminder_school_filtered$`2002`),
+            "2007" = mean(gapminder_school_filtered$`2007`),
+            ) 
+```
+
+
+
+### Super `%>%` pipe
+
+```{r}
+read.csv("https://query.data.world/s/bpbbjyj7t6k2u6owizb7tr4fm4h4fq", 
+         header = TRUE, check.names = FALSE) %>%
+  rename(country = "Row Labels")  %>% 
+  filter(country %in% gapminder$country) %>% 
+  select("country",as.character(unique(gapminder$year)[-c(1:4)])) %>%
+  mutate(continent = gpmd_cont$continent) %>% 
+  group_by(continent) %>% 
+  summarise("1972" = mean(gapminder_school_filtered$`1972`),
+            "1977" = mean(gapminder_school_filtered$`1977`),
+            "1982" = mean(gapminder_school_filtered$`1982`),
+            "1987" = mean(gapminder_school_filtered$`1987`),
+            "1992" = mean(gapminder_school_filtered$`1992`),
+            "1997" = mean(gapminder_school_filtered$`1997`),
+            "2002" = mean(gapminder_school_filtered$`2002`),
+            "2007" = mean(gapminder_school_filtered$`2007`),
+            ) 
+# 
+# gapminder_school_filtered %>% ggplot(aes (x = continent , y = gapminder_school_filtered$`1972`) + geom_bar(position = "dodge", stat = "identity")
+```
+
