@@ -3,12 +3,12 @@ Homework 04: Tidy data and joins
 Seevasant Indran
 09 October, 2018
 
--   [Install, load packages and assign dataset](#install-load-packages-and-assign-dataset)
--   [A not so minimal guide to `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-dplyr-and-tidyr.)
+-   [WARNING!! package+ CONTENT](#warning-package-content)
+-   [A not so minimal guide to `readr`, `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-readr-dplyr-and-tidyr.)
     -   [Why Data Manipulation](#why-data-manipulation)
     -   [Examples of a **Messy data** vs some **Tidy data**](#examples-of-a-messy-data-vs-some-tidy-data)
     -   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
--   [Summary of the dplyr Functions](#summary-of-the-dplyr-functions)
+-   [Summary of the main `dplyr` Functions](#summary-of-the-main-dplyr-functions)
     -   [Quick data.frame](#quick-data.frame)
     -   [The most useful `dplyr` function](#the-most-useful-dplyr-function)
     -   [the pipe operator](#the-pipe-operator)
@@ -17,7 +17,7 @@ Seevasant Indran
     -   [{base} `R` and `dplyr`](#base-r-and-dplyr)
     -   [Chaining](#chaining)
     -   [A `tidyr` walkthrough](#a-tidyr-walkthrough)
--   [Summary of the 2 Main Functions](#summary-of-the-2-main-functions)
+-   [Summary of the `tidyr` main Functions](#summary-of-the-tidyr-main-functions)
 -   [The `dplyr` Functions](#the-dplyr-functions)
     -   [7 most important `dplyr` for data manipulation](#most-important-dplyr-for-data-manipulation)
 -   [`dplyr` Demos](#dplyr-demos)
@@ -54,21 +54,22 @@ Seevasant Indran
 -   [Additional Demos](#additional-demos-1)
     -   [right\_join()](#right_join)
     -   [full\_join()](#full_join)
+    -   [union()](#union)
+    -   [intersect()](#intersect)
     -   [setdiff()](#setdiff)
 
-### Install, load packages and assign dataset
+WARNING!! package+ CONTENT
+--------------------------
 
-``` r
- if (ev_True) {
-   library(tidyverse)
-   library(gapminder)
-   library(knitr)
-   library(gridExtra)
-}
-```
+Package needed:-
+- [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [tibble](http://tibble.tidyverse.org/)) - [gapminder](https://cran.r-project.org/web/packages/gapminder/index.html) - [knitr](https://cran.r-project.org/web/packages/knitr/index.html) - [gridExtra](https://cran.r-project.org/web/packages/gridExtra/index.html)
 
-A not so minimal guide to `dplyr` and `tidyr`.
-----------------------------------------------
+> Install by running '**install.packages("packageName", dependencies = TRUE)**'
+
+A not so minimal guide to `readr`, `dplyr` and `tidyr`.
+-------------------------------------------------------
+
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw01-rasiimwe/blob/master/Plugins/header.jpg" width="300" height="300"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
 
 The fundamental processes to follow to understand the knowledge and insight a data provides are:
 
@@ -77,17 +78,17 @@ The fundamental processes to follow to understand the knowledge and insight a da
 3.  Statistical analysis/modeling
 4.  Organization of results
 
+![modelstidy](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
+
 #### Why Data Manipulation
 
 > 80% of data analysis is spent on the process of cleaning and preparing the data. (Dasu and Johnson, 2003)
 
 **Makes data compatible for processing such as mathematical functions, visualization, hence reveals information and insights.**
 
-Hadley Wickham’s paper on Tidy Data provides a great explanation behind the concept of “tidy data”
-
 #### Examples of a **Messy data** vs some **Tidy data**
 
-picture mesy vs tidy data
+\[\]
 
 According to Hadley:-
 
@@ -95,8 +96,8 @@ According to Hadley:-
 
 ### A `dplyr` walkthrough
 
-Summary of the dplyr Functions
-==============================
+Summary of the main `dplyr` Functions
+=====================================
 
 #### Quick data.frame
 
@@ -121,11 +122,11 @@ Relating the Functions
 
 ### Tibble diff
 
-`tbl_df` works similar to `data.table` in that it prints sensibly. Use `as_tibble()`
+`tbl_df` works similar to `data.table` in that it prints sensibly. Depreceated, use `as_tibble()` instead.
 
 ### {base} `R` and `dplyr`
 
-List of dplyr functions and the base functions they're related to:
+List of **dplyr** functions and the base functions they're related to:
 
 | Base Function        | dplyr Function(s)   | Special Powers                           |
 |----------------------|---------------------|------------------------------------------|
@@ -145,8 +146,8 @@ pic
 
 ### A `tidyr` walkthrough
 
-Summary of the 2 Main Functions
-===============================
+Summary of the `tidyr` main Functions
+=====================================
 
 List of **tidyr** functions and the **reshape2** functions they're related to:
 
@@ -255,9 +256,9 @@ options(readr.num_columns = 0)
 
 # Import using the read_csv(), assign to `gapminder_school` variable. Lets call this school dataset
 
-gapminder_school <- read.csv("https://query.data.world/s/bpbbjyj7t6k2u6owizb7tr4fm4h4fq", 
-                             header = TRUE, check.names = FALSE) 
-gapminder_mortality <- read_csv(file.path(getwd(), "Infant mortality rate per 1 000 births.csv"), col_names = TRUE)
+gapminder_school <- read.csv("https://query.data.world/s/bpbbjyj7t6k2u6owizb7tr4fm4h4fq", header = TRUE, check.names = FALSE) 
+
+gapminder_mortality <- read_csv(file.path(getwd(), "Infant mortality rate per 1 000 births.csv"), col_names = TRUE) # Aditional data, not used
 ```
 
 ``` r
@@ -265,26 +266,6 @@ dim(gapminder_school) # dimension of the data, 175 countries and 41 years
 ```
 
     ## [1] 175  41
-
-``` r
-# 
-# gapminder_mortality_filtered <- gapminder_mortality %>% 
-#   filter(country %in% gapminder$country)
-# 
-# (nrow(gapminder_mortality) - nrow(gapminder_mortality_filtered))
-# 
-# gapminder_mortality$country[which(!gapminder_mortality$country %in% gapminder_mortality_filtered$country)] %>% kable()
-# 
-# global_carbon <-readxl::read_xlsx(file.path(getwd(),"export_20181007_2016.xlsx"),  col_names = TRUE, skip = 1) 
-#   
-# names(global_carbon) <-  c("", names(global_carbon)[-1])
-# remove_rownames(global_carbon)
-# 
-# global_carbon <- as.tibble(t(global_carbon))
-# 
-# names(global_carbon)
-# 
-```
 
 `dplyr` Demos
 =============
@@ -886,32 +867,116 @@ full_join(gapminder, gapminder_tidyschool)
     ## 10 Afghanistan Asia       1997    41.8 22227415      635.        2.6
     ## # ... with 1,694 more rows
 
+### union()
+
+> rows that appear in both `x` and `y`
+
+``` r
+#  print all rows gapminder$country vs gapminder_school$country
+union(gapminder$country, gapminder_school$country) %>% 
+  tbl_df() # not required, when used, prints nice
+```
+
+    ## # A tibble: 184 x 1
+    ##    value      
+    ##    <chr>      
+    ##  1 Afghanistan
+    ##  2 Albania    
+    ##  3 Algeria    
+    ##  4 Angola     
+    ##  5 Argentina  
+    ##  6 Australia  
+    ##  7 Austria    
+    ##  8 Bahrain    
+    ##  9 Bangladesh 
+    ## 10 Belgium    
+    ## # ... with 174 more rows
+
+### intersect()
+
+> rows that appear in both `x` and `y`
+
+``` r
+#  rows gapminder$country vs gapminder_school$country, prints difference
+intersect(gapminder$country, gapminder_school$country) %>% 
+  tbl_df() # not required, when used, prints nice
+```
+
+    ## # A tibble: 133 x 1
+    ##    value      
+    ##    <chr>      
+    ##  1 Afghanistan
+    ##  2 Albania    
+    ##  3 Algeria    
+    ##  4 Angola     
+    ##  5 Argentina  
+    ##  6 Australia  
+    ##  7 Austria    
+    ##  8 Bahrain    
+    ##  9 Bangladesh 
+    ## 10 Belgium    
+    ## # ... with 123 more rows
+
+``` r
+intersect(gapminder$country, gapminder_school$country) %>% 
+  tbl_df() # not required, when used, prints nice
+```
+
+    ## # A tibble: 133 x 1
+    ##    value      
+    ##    <chr>      
+    ##  1 Afghanistan
+    ##  2 Albania    
+    ##  3 Algeria    
+    ##  4 Angola     
+    ##  5 Argentina  
+    ##  6 Australia  
+    ##  7 Austria    
+    ##  8 Bahrain    
+    ##  9 Bangladesh 
+    ## 10 Belgium    
+    ## # ... with 123 more rows
+
 ### setdiff()
 
-> rows that appear in x but not y
+> rows that appear in `x` but not `y`
 
 ``` r
- setdiff(packages, rownames(installed.packages()))
+#  rows gapminder$country vs gapminder_school$country, prints difference
+setdiff(gapminder$country, gapminder_school$country) %>% 
+  tbl_df() # not required, when used, prints nice
 ```
 
-    ## character(0)
+    ## # A tibble: 9 x 1
+    ##   value                   
+    ##   <chr>                   
+    ## 1 Central African Republic
+    ## 2 Czech Republic          
+    ## 3 Dominican Republic      
+    ## 4 Hong Kong, China        
+    ## 5 Iceland                 
+    ## 6 Korea, Dem. Rep.        
+    ## 7 Libya                   
+    ## 8 Puerto Rico             
+    ## 9 Reunion
 
 ``` r
-gapminder2 %>% group_by(continent) 
+# gapminder_school$country vs gapminder$country diffence 
+setdiff(gapminder_school$country, gapminder$country) %>% 
+  tbl_df()
 ```
 
-    ## # A tibble: 1,064 x 7
-    ## # Groups:   continent [5]
-    ##    country     continent  year lifeExp      pop gdpPercap meanSchool
-    ##    <chr>       <fct>     <int>   <dbl>    <int>     <dbl>      <dbl>
-    ##  1 Afghanistan Asia       1972    36.1 13079460      740.        1.1
-    ##  2 Afghanistan Asia       1977    38.4 14880372      786.        1.4
-    ##  3 Afghanistan Asia       1982    39.9 12881816      978.        1.8
-    ##  4 Afghanistan Asia       1987    40.8 13867957      852.        2.1
-    ##  5 Afghanistan Asia       1992    41.7 16317921      649.        2.3
-    ##  6 Afghanistan Asia       1997    41.8 22227415      635.        2.6
-    ##  7 Afghanistan Asia       2002    42.1 25268405      727.        2.9
-    ##  8 Afghanistan Asia       2007    43.8 31889923      975.        3.2
-    ##  9 Albania     Europe     1972    67.7  2263554     3313.        6.9
-    ## 10 Albania     Europe     1977    68.9  2509048     3533.        7.7
-    ## # ... with 1,054 more rows
+    ## # A tibble: 42 x 1
+    ##    value               
+    ##    <chr>               
+    ##  1 Antigua and Barbuda 
+    ##  2 Armenia             
+    ##  3 Azerbaijan          
+    ##  4 Bahamas             
+    ##  5 Belarus             
+    ##  6 Belize              
+    ##  7 Cape Verde          
+    ##  8 Central African Rep.
+    ##  9 Cyprus              
+    ## 10 Czech Rep.          
+    ## # ... with 32 more rows

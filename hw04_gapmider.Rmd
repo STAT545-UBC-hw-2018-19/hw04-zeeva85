@@ -7,27 +7,29 @@ output:
     toc: yes
 ---
 
+## WARNING!! package+ CONTENT
 
-```{r setup, global_options, include=FALSE}
-# assign TRUE and FALSE value to a variable for chunk evaluation
+Package needed:-  
+-   [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [tibble](http://tibble.tidyverse.org/))
+- [gapminder](https://cran.r-project.org/web/packages/gapminder/index.html)
+- [knitr](https://cran.r-project.org/web/packages/knitr/index.html)
+- [gridExtra](https://cran.r-project.org/web/packages/gridExtra/index.html)
+
+> Install by running '**install.packages("packageName", dependencies = TRUE)**'
+
+```{r setupchunk, global_options, include=FALSE}
+## assign TRUE and FALSE value to a variable for chunk evaluation
 ev_True = TRUE
 ev_False = FALSE
 
-# Figure options.
+## Figure options
 # fig.width=12, fig.height=8
 
 knitr::opts_chunk$set(fig.path='figs/', warning=FALSE, message=FALSE)
 ```
 
 
-```{r message=FALSE, include=FALSE}
-
- # if (ev_False) {
- #   install.packages("tidyverse")
- #   install.packages("gapminder")
- #   install.packages("knitr")
- #   install.packages("gridExtra")
- # }
+```{r packagechunk, message=FALSE, include = FALSE, include = FALSE}
 
 packages <- c("tidyverse", "gapminder", "knitr", "gridExtra")
 
@@ -35,26 +37,18 @@ if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
   install.packages(setdiff(packages, rownames(installed.packages())))  
 }
 
-```
-
-
-
-### Install, load packages and assign dataset
-
-
-```{r loadchunk, message=FALSE}
-
  if (ev_True) {
    library(tidyverse)
    library(gapminder)
    library(knitr)
    library(gridExtra)
-}
+ }
+
 ```
 
+## A not so minimal guide to `readr`, `dplyr` and `tidyr`.
 
-
-## A not so minimal guide to `dplyr` and `tidyr`.
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw01-rasiimwe/blob/master/Plugins/header.jpg" width="300" height="300"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
 
 The fundamental processes to follow to understand the knowledge and insight a data provides are:
 
@@ -63,27 +57,29 @@ The fundamental processes to follow to understand the knowledge and insight a da
 3. Statistical analysis/modeling
 4. Organization of results
 
+![modelstidy](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg) 
+
+[modelstidy]:https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg
+
 #### Why Data Manipulation
 
 > 80% of data analysis is spent on the process of cleaning and preparing the data. (Dasu and Johnson, 2003)
 
 **Makes data compatible for processing such as mathematical functions, visualization, hence reveals information and insights.**
 
-Hadley Wickham’s paper on Tidy Data provides a great explanation behind the concept of “tidy data”
-
-
 #### Examples of a **Messy data** vs some **Tidy data**
 
-picture mesy vs tidy data
+![] 
 
 According to Hadley:-
 
 > Tidy data makes it easy for an analyst or a computer to extract needed variables because it provides a standard way of structuring a dataset. Compare. Table 3 to Table 1: in Table 1 you need to use different strategies to extract different variables. This slows analysis and invites errors. If you consider how many data analysis operations involve all of the values in a variable (every aggregation function), you can see how important it is to extract these values in a simple, standard way. Tidy data is particularly well suited for vectorised programming languages like R, because the layout ensures that values of different variables from the same observation are always paired.
 
+
 ### A `dplyr` walkthrough
 
 
-# Summary of the dplyr Functions
+# Summary of the main `dplyr` Functions
 
 #### Quick data.frame
 
@@ -107,11 +103,11 @@ According to Hadley:-
 
 ### Tibble diff 
 
-`tbl_df` works similar to `data.table` in that it prints sensibly. Use `as_tibble()`
+`tbl_df` works similar to `data.table` in that it prints sensibly. Depreceated, use `as_tibble()` instead.
 
 ### {base} `R` and `dplyr` 
 
-List of dplyr functions and the base functions they're related to:
+List of **dplyr** functions and the base functions they're related to:
 
 Base Function    | dplyr Function(s) | Special Powers
 ---------------------|-----------------------|-----------------------------
@@ -132,7 +128,7 @@ pic
 
 ### A `tidyr` walkthrough
 
-# Summary of the 2  Main Functions
+# Summary of the `tidyr` main Functions
 
 List of **tidyr** functions and the **reshape2** functions they're related to:
 
@@ -237,36 +233,14 @@ options(readr.num_columns = 0)
 
 # Import using the read_csv(), assign to `gapminder_school` variable. Lets call this school dataset
 
-gapminder_school <- read.csv("https://query.data.world/s/bpbbjyj7t6k2u6owizb7tr4fm4h4fq", 
-                             header = TRUE, check.names = FALSE) 
-gapminder_mortality <- read_csv(file.path(getwd(), "Infant mortality rate per 1 000 births.csv"), col_names = TRUE)
+gapminder_school <- read.csv("https://query.data.world/s/bpbbjyj7t6k2u6owizb7tr4fm4h4fq", header = TRUE, check.names = FALSE) 
+
+gapminder_mortality <- read_csv(file.path(getwd(), "Infant mortality rate per 1 000 births.csv"), col_names = TRUE) # Aditional data, not used
 
 ```
 
 ```{r dataheadchunk}
 dim(gapminder_school) # dimension of the data, 175 countries and 41 years
-```
-
-```{r}
-
-# 
-# gapminder_mortality_filtered <- gapminder_mortality %>% 
-#   filter(country %in% gapminder$country)
-# 
-# (nrow(gapminder_mortality) - nrow(gapminder_mortality_filtered))
-# 
-# gapminder_mortality$country[which(!gapminder_mortality$country %in% gapminder_mortality_filtered$country)] %>% kable()
-# 
-# global_carbon <-readxl::read_xlsx(file.path(getwd(),"export_20181007_2016.xlsx"),  col_names = TRUE, skip = 1) 
-#   
-# names(global_carbon) <-  c("", names(global_carbon)[-1])
-# remove_rownames(global_carbon)
-# 
-# global_carbon <- as.tibble(t(global_carbon))
-# 
-# names(global_carbon)
-# 
-
 ```
 
 
@@ -652,15 +626,72 @@ right_join(gapminder, gapminder_tidyschool)
 ```{r warning=FALSE, message=FALSE}
 full_join(gapminder, gapminder_tidyschool)
 ```
-### setdiff()  
-> rows that appear in x but not y
+
+
+### union()  
+> rows that appear in both `x` and `y`
 
 ```{r}
- setdiff(packages, rownames(installed.packages()))
+#  print all rows gapminder$country vs gapminder_school$country
+union(gapminder$country, gapminder_school$country) %>% 
+  tbl_df() # not required, when used, prints nice
+
 ```
 
 
+### intersect()  
+> rows that appear in both `x` and `y`
+
 ```{r}
-gapminder2 %>% group_by(continent) 
+#  rows gapminder$country vs gapminder_school$country, prints difference
+intersect(gapminder$country, gapminder_school$country) %>% 
+  tbl_df() # not required, when used, prints nice
+
+
+```
+
+```{r}
+
+intersect(gapminder$country, gapminder_school$country) %>% 
+  tbl_df() # not required, when used, prints nice
+
+```
+
+
+### setdiff()  
+> rows that appear in `x` but not `y`
+
+```{r}
+#  rows gapminder$country vs gapminder_school$country, prints difference
+setdiff(gapminder$country, gapminder_school$country) %>% 
+  tbl_df() # not required, when used, prints nice
+
+
+
+# gapminder_school$country vs gapminder$country diffence 
+setdiff(gapminder_school$country, gapminder$country) %>% 
+  tbl_df()
+```
+
+```{r, include=FALSE}
+
+# 
+# gapminder_mortality_filtered <- gapminder_mortality %>% 
+#   filter(country %in% gapminder$country)
+# 
+# (nrow(gapminder_mortality) - nrow(gapminder_mortality_filtered))
+# 
+# gapminder_mortality$country[which(!gapminder_mortality$country %in% gapminder_mortality_filtered$country)] %>% kable()
+# 
+# global_carbon <-readxl::read_xlsx(file.path(getwd(),"export_20181007_2016.xlsx"),  col_names = TRUE, skip = 1) 
+#   
+# names(global_carbon) <-  c("", names(global_carbon)[-1])
+# remove_rownames(global_carbon)
+# 
+# global_carbon <- as.tibble(t(global_carbon))
+# 
+# names(global_carbon)
+# 
+
 ```
 
