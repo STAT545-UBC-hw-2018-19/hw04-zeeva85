@@ -86,7 +86,7 @@ The fundamental processes to follow to understand the knowledge and insight a da
 
 #### Examples of a **Messy data** vs some **Tidy data**
 
-\[\]
+![messytidt](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/messy_tidy_ex.png)
 
 According to Hadley:-
 
