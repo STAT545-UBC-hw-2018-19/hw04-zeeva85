@@ -69,7 +69,7 @@ Package needed:-
 A not so minimal guide to `readr`, `dplyr` and `tidyr`.
 -------------------------------------------------------
 
-[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg" width="500" height="200"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg" width="600" height="200"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
 
 The fundamental processes to follow to understand the knowledge and insight a data provides are:
 
@@ -77,8 +77,6 @@ The fundamental processes to follow to understand the knowledge and insight a da
 2.  Data visualization
 3.  Statistical analysis/modeling
 4.  Organization of results
-
-![modelstidy](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
 
 #### Why Data Manipulation
 
@@ -980,3 +978,5 @@ setdiff(gapminder_school$country, gapminder$country) %>%
     ##  9 Cyprus              
     ## 10 Czech Rep.          
     ## # ... with 32 more rows
+
+![modelstidy](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
