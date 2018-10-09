@@ -69,7 +69,7 @@ Package needed:-
 A not so minimal guide to `readr`, `dplyr` and `tidyr`.
 -------------------------------------------------------
 
-[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg" width="600" height="200"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg" width="600" height="400"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
 
 The fundamental processes to follow to understand the knowledge and insight a data provides are:
 
