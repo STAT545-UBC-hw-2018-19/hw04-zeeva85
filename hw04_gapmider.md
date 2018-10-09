@@ -3,6 +3,70 @@ Homework 04: Tidy data and joins
 Seevasant Indran
 09 October, 2018
 
+-   [Install, load packages and assign dataset](#install-load-packages-and-assign-dataset)
+-   [A not so minimal guide to `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-dplyr-and-tidyr.)
+    -   [Why Data Manipulation](#why-data-manipulation)
+    -   [Examples of a **Messy data** vs some **Tidy data**](#examples-of-a-messy-data-vs-some-tidy-data)
+    -   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
+-   [Summary of the dplyr Functions](#summary-of-the-dplyr-functions)
+    -   [Quick data.frame](#quick-data.frame)
+    -   [The most useful `dplyr` function](#the-most-useful-dplyr-function)
+    -   [the pipe operator](#the-pipe-operator)
+-   [Relating the Functions](#relating-the-functions)
+    -   [Tibble diff](#tibble-diff)
+    -   [{base} `R` and `dplyr`](#base-r-and-dplyr)
+    -   [Chaining](#chaining)
+    -   [A `tidyr` walkthrough](#a-tidyr-walkthrough)
+-   [Summary of the 2 Main Functions](#summary-of-the-2-main-functions)
+-   [The `dplyr` Functions](#the-dplyr-functions)
+    -   [7 most important `dplyr` for data manipulation](#most-important-dplyr-for-data-manipulation)
+-   [`dplyr` Demos](#dplyr-demos)
+    -   [Tibble diff](#tibble-diff-1)
+    -   [rename](#rename-1)
+    -   [filter()](#filter-1)
+    -   [select()](#select-1)
+    -   [arrange()](#arrange-1)
+    -   [chaining()](#chaining-1)
+    -   [mutate()](#mutate-1)
+    -   [summarise()](#summarise-1)
+    -   [group\_by()](#group_by-1)
+    -   [Super `%>%` pipe](#super-pipe)
+-   [The `tidyr` Functions](#the-tidyr-functions)
+    -   [2 most important `tidyr` for data manipulation](#most-important-tidyr-for-data-manipulation)
+-   [`tidyr` Demos](#tidyr-demos)
+    -   [Some Data](#some-data)
+    -   [gather()](#gather-1)
+    -   [spread()](#spread-1)
+-   [Additional Demos](#additional-demos)
+    -   [gather() part 2](#gather-part-2)
+    -   [gather() part 3 - define year using subset of `colnames`](#gather-part-3---define-year-using-subset-of-colnames)
+    -   [spread() - part 2 with continent has the `colnames` and `meanSchool` as value](#spread---part-2-with-continent-has-the-colnames-and-meanschool-as-value)
+-   [A `dplyr` join walkthrough](#a-dplyr-join-walkthrough)
+    -   [Summary of the 9 joint function](#summary-of-the-9-joint-function)
+    -   [inner\_join()](#inner_join)
+    -   [semi\_join()](#semi_join)
+    -   [left\_join()](#left_join)
+    -   [anti\_join()](#anti_join)
+    -   [inner\_join() part 2](#inner_join-part-2)
+    -   [semi\_join() part 2](#semi_join-part-2)
+    -   [left\_join() part 2](#left_join-part-2)
+    -   [anti\_join() part 2](#anti_join-part-2)
+-   [Additional Demos](#additional-demos-1)
+    -   [right\_join()](#right_join)
+    -   [full\_join()](#full_join)
+    -   [setdiff()](#setdiff)
+
+### Install, load packages and assign dataset
+
+``` r
+ if (ev_True) {
+   library(tidyverse)
+   library(gapminder)
+   library(knitr)
+   library(gridExtra)
+}
+```
+
 A not so minimal guide to `dplyr` and `tidyr`.
 ----------------------------------------------
 
@@ -715,6 +779,8 @@ inner_join(gapminder_tidyschool, gapminder) %>%
   head()
 ```
 
+    ## Joining, by = c("country", "continent", "year")
+
     ##       country continent year meanSchool lifeExp      pop  gdpPercap
     ## 1 Afghanistan      Asia 1972        1.1  36.088 13079460   739.9811
     ## 2     Albania    Europe 1972        6.9  67.690  2263554  3313.4222
@@ -820,4 +886,32 @@ full_join(gapminder, gapminder_tidyschool)
     ## 10 Afghanistan Asia       1997    41.8 22227415      635.        2.6
     ## # ... with 1,694 more rows
 
-### union()
+### setdiff()
+
+> rows that appear in x but not y
+
+``` r
+ setdiff(packages, rownames(installed.packages()))
+```
+
+    ## character(0)
+
+``` r
+gapminder2 %>% group_by(continent) 
+```
+
+    ## # A tibble: 1,064 x 7
+    ## # Groups:   continent [5]
+    ##    country     continent  year lifeExp      pop gdpPercap meanSchool
+    ##    <chr>       <fct>     <int>   <dbl>    <int>     <dbl>      <dbl>
+    ##  1 Afghanistan Asia       1972    36.1 13079460      740.        1.1
+    ##  2 Afghanistan Asia       1977    38.4 14880372      786.        1.4
+    ##  3 Afghanistan Asia       1982    39.9 12881816      978.        1.8
+    ##  4 Afghanistan Asia       1987    40.8 13867957      852.        2.1
+    ##  5 Afghanistan Asia       1992    41.7 16317921      649.        2.3
+    ##  6 Afghanistan Asia       1997    41.8 22227415      635.        2.6
+    ##  7 Afghanistan Asia       2002    42.1 25268405      727.        2.9
+    ##  8 Afghanistan Asia       2007    43.8 31889923      975.        3.2
+    ##  9 Albania     Europe     1972    67.7  2263554     3313.        6.9
+    ## 10 Albania     Europe     1977    68.9  2509048     3533.        7.7
+    ## # ... with 1,054 more rows

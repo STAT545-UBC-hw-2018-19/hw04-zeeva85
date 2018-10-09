@@ -2,20 +2,56 @@
 title: "Homework 04: Tidy data and joins"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 author: Seevasant Indran
-output: github_document
-keep_md: TRUE
+output:
+  github_document:
+    toc: yes
 ---
+
+
+```{r setup, global_options, include=FALSE}
+# assign TRUE and FALSE value to a variable for chunk evaluation
+ev_True = TRUE
+ev_False = FALSE
+
+# Figure options.
+# fig.width=12, fig.height=8
+
+knitr::opts_chunk$set(fig.path='figs/', warning=FALSE, message=FALSE)
+```
+
 
 ```{r message=FALSE, include=FALSE}
 
-library(tidyverse)
-library(gapminder)
-library(readxl)
-library(readr)
-library(knitr)
-library(gridExtra)
+ # if (ev_False) {
+ #   install.packages("tidyverse")
+ #   install.packages("gapminder")
+ #   install.packages("knitr")
+ #   install.packages("gridExtra")
+ # }
+
+packages <- c("tidyverse", "gapminder", "knitr", "gridExtra")
+
+if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
+  install.packages(setdiff(packages, rownames(installed.packages())))  
+}
 
 ```
+
+
+
+### Install, load packages and assign dataset
+
+
+```{r loadchunk, message=FALSE}
+
+ if (ev_True) {
+   library(tidyverse)
+   library(gapminder)
+   library(knitr)
+   library(gridExtra)
+}
+```
+
 
 
 ## A not so minimal guide to `dplyr` and `tidyr`.
@@ -568,7 +604,7 @@ anti_join(gapminder, gapminder_tidyschool)
 
 ### inner_join() part 2
 
-```{r warning=FALSE, message=FALSE}
+```{r warning=FALSE, message=TRUE}
 inner_join(gapminder_tidyschool, gapminder) %>% 
   head()
 ```
@@ -616,6 +652,15 @@ right_join(gapminder, gapminder_tidyschool)
 ```{r warning=FALSE, message=FALSE}
 full_join(gapminder, gapminder_tidyschool)
 ```
-### union()  
-> 
+### setdiff()  
+> rows that appear in x but not y
+
+```{r}
+ setdiff(packages, rownames(installed.packages()))
+```
+
+
+```{r}
+gapminder2 %>% group_by(continent) 
+```
 
