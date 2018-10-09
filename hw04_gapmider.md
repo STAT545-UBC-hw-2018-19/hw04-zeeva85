@@ -69,8 +69,6 @@ Package needed:-
 A not so minimal guide to `readr`, `dplyr` and `tidyr`.
 -------------------------------------------------------
 
-[<img align ="right" src="https://github.com/STAT545-UBC-students/hw01-rasiimwe/blob/master/Plugins/header.jpg" width="300" height="300"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
-
 The fundamental processes to follow to understand the knowledge and insight a data provides are:
 
 1.  **Data manipulation**
