@@ -158,7 +158,6 @@ What are we going to do
 =======================
 
 [<img align ="left" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png)
-
 [<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapminderschooltidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapminderschooltidy.png)
 
 A `tidyr` walkthrough
