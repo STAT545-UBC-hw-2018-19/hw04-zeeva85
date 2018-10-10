@@ -1,6 +1,6 @@
 ---
 title: "A not so minimal guide to `readr`, `dplyr` and `tidyr`"
-author: Seevasant Indran    
+author: Seevasant Indran
 date: "`r format(Sys.time(), '%d %B, %Y')`"   
 output:  
   github_document:  
