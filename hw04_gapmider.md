@@ -5,31 +5,31 @@ Seevasant Indran
 
 -   [WARNING!! package+ CONTENT](#warning-package-content)
 -   [A not so minimal guide to `readr`, `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-readr-dplyr-and-tidyr.)
-    -   [Why Data Manipulation](#why-data-manipulation)
+    -   [**Why Data Manipulation**](#why-data-manipulation)
     -   [Examples of a **Messy data** vs some **Tidy data**](#examples-of-a-messy-data-vs-some-tidy-data)
     -   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
 -   [Summary of the main `dplyr` Functions](#summary-of-the-main-dplyr-functions)
     -   [Quick data.frame](#quick-data.frame)
     -   [The most useful `dplyr` function](#the-most-useful-dplyr-function)
     -   [the pipe operator](#the-pipe-operator)
--   [Relating the Functions](#relating-the-functions)
+-   [Relationship to the other functions](#relationship-to-the-other-functions)
     -   [Tibble diff](#tibble-diff)
     -   [{base} `R` and `dplyr`](#base-r-and-dplyr)
     -   [Chaining](#chaining)
     -   [A `tidyr` walkthrough](#a-tidyr-walkthrough)
 -   [Summary of the `tidyr` main Functions](#summary-of-the-tidyr-main-functions)
--   [The `dplyr` Functions](#the-dplyr-functions)
-    -   [7 most important `dplyr` for data manipulation](#most-important-dplyr-for-data-manipulation)
--   [`dplyr` Demos](#dplyr-demos)
-    -   [Tibble diff](#tibble-diff-1)
-    -   [rename](#rename-1)
+    -   [\# The `dplyr` Functions](#the-dplyr-functions)
+        -   [Most usefull `dplyr` functions for data manipulation](#most-usefull-dplyr-functions-for-data-manipulation)
+-   [`dplyr::` demo](#dplyr-demo)
+    -   [tbl\_df()](#tbl_df)
+    -   [`rename()`](#rename-1)
     -   [filter()](#filter-1)
-    -   [select()](#select-1)
-    -   [arrange()](#arrange-1)
+    -   [select()](#select)
+    -   [arrange()](#arrange)
     -   [chaining()](#chaining-1)
     -   [mutate()](#mutate-1)
     -   [summarise()](#summarise-1)
-    -   [group\_by()](#group_by-1)
+    -   [group\_by()](#group_by)
     -   [Super `%>%` pipe](#super-pipe)
 -   [The `tidyr` Functions](#the-tidyr-functions)
     -   [2 most important `tidyr` for data manipulation](#most-important-tidyr-for-data-manipulation)
@@ -37,39 +37,42 @@ Seevasant Indran
     -   [Some Data](#some-data)
     -   [gather()](#gather-1)
     -   [spread()](#spread-1)
--   [Additional Demos](#additional-demos)
-    -   [gather() part 2](#gather-part-2)
-    -   [gather() part 3 - define year using subset of `colnames`](#gather-part-3---define-year-using-subset-of-colnames)
-    -   [spread() - part 2 with continent has the `colnames` and `meanSchool` as value](#spread---part-2-with-continent-has-the-colnames-and-meanschool-as-value)
 -   [A `dplyr` join walkthrough](#a-dplyr-join-walkthrough)
     -   [Summary of the 9 joint function](#summary-of-the-9-joint-function)
     -   [inner\_join()](#inner_join)
     -   [semi\_join()](#semi_join)
     -   [left\_join()](#left_join)
     -   [anti\_join()](#anti_join)
-    -   [inner\_join() part 2](#inner_join-part-2)
-    -   [semi\_join() part 2](#semi_join-part-2)
-    -   [left\_join() part 2](#left_join-part-2)
-    -   [anti\_join() part 2](#anti_join-part-2)
--   [Additional Demos](#additional-demos-1)
     -   [right\_join()](#right_join)
     -   [full\_join()](#full_join)
     -   [union()](#union)
     -   [intersect()](#intersect)
     -   [setdiff()](#setdiff)
+-   [Additional Demos](#additional-demos)
+    -   [gather() part 2](#gather-part-2)
+    -   [gather() part 3 - define year using subset of `colnames`](#gather-part-3---define-year-using-subset-of-colnames)
+    -   [spread() - part 2 with continent has the `colnames` and `meanSchool` as value](#spread---part-2-with-continent-has-the-colnames-and-meanschool-as-value)
+    -   [inner\_join() part 2](#inner_join-part-2)
+    -   [semi\_join() part 2](#semi_join-part-2)
+    -   [left\_join() part 2](#left_join-part-2)
+    -   [anti\_join() part 2](#anti_join-part-2)
 
-WARNING!! package+ CONTENT
---------------------------
+#### WARNING!! package+ CONTENT
 
 Package needed:-
-- [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [tibble](http://tibble.tidyverse.org/)) - [gapminder](https://cran.r-project.org/web/packages/gapminder/index.html) - [knitr](https://cran.r-project.org/web/packages/knitr/index.html) - [gridExtra](https://cran.r-project.org/web/packages/gridExtra/index.html)
+- [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [tibble](http://tibble.tidyverse.org/))
+- [gapminder](https://cran.r-project.org/web/packages/gapminder/index.html)
+- [knitr](https://cran.r-project.org/web/packages/knitr/index.html)
+- [gridExtra](https://cran.r-project.org/web/packages/gridExtra/index.html)
 
-> Install by running '**install.packages("packageName", dependencies = TRUE)**'
+**Install by running**
+
+    install.packages("packageName", dependencies = TRUE)
 
 A not so minimal guide to `readr`, `dplyr` and `tidyr`.
--------------------------------------------------------
+=======================================================
 
-[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg" width="600" height="300"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
 
 The fundamental processes to follow to understand the knowledge and insight a data provides are:
 
@@ -78,7 +81,7 @@ The fundamental processes to follow to understand the knowledge and insight a da
 3.  Statistical analysis/modeling
 4.  Organization of results
 
-#### Why Data Manipulation
+#### **Why Data Manipulation**
 
 > 80% of data analysis is spent on the process of cleaning and preparing the data. (Dasu and Johnson, 2003)
 
@@ -91,6 +94,7 @@ The fundamental processes to follow to understand the knowledge and insight a da
 According to Hadley:-
 
 > Tidy data makes it easy for an analyst or a computer to extract needed variables because it provides a standard way of structuring a dataset. Compare. Table 3 to Table 1: in Table 1 you need to use different strategies to extract different variables. This slows analysis and invites errors. If you consider how many data analysis operations involve all of the values in a variable (every aggregation function), you can see how important it is to extract these values in a simple, standard way. Tidy data is particularly well suited for vectorised programming languages like R, because the layout ensures that values of different variables from the same observation are always paired.
+> \*[Source](http://vita.had.co.nz/papers/tidy-data.pdf)
 
 ### A `dplyr` walkthrough
 
@@ -115,8 +119,8 @@ Summary of the main `dplyr` Functions
 
 `%>%`
 
-Relating the Functions
-======================
+Relationship to the other functions
+===================================
 
 ### Tibble diff
 
@@ -124,7 +128,7 @@ Relating the Functions
 
 ### {base} `R` and `dplyr`
 
-List of **dplyr** functions and the base functions they're related to:
+List of **dplyr** functions and the `{base}R` functions they're related to:
 
 | Base Function        | dplyr Function(s)   | Special Powers                           |
 |----------------------|---------------------|------------------------------------------|
@@ -147,19 +151,17 @@ pic
 Summary of the `tidyr` main Functions
 =====================================
 
-List of **tidyr** functions and the **reshape2** functions they're related to:
+List of **tidyr** functions and the relationship to the **reshape2** functions:
 
 | reshape2 Function | tidyr Function | Special Powers |
 |-------------------|----------------|----------------|
 | `melt`            | `gather`       | long format\*  |
 | `dcast`           | `spread`       | wide format\*  |
 
-The `dplyr` Functions
-=====================
+\# The `dplyr` Functions
+------------------------
 
-------------------------------------------------------------------------
-
-### 7 most important `dplyr` for data manipulation
+### Most usefull `dplyr` functions for data manipulation
 
 #### **`filter`**
 
@@ -173,43 +175,12 @@ The `dplyr` Functions
 Ussage - **`filter(.data, ...)`**
 - Use `filter()` find rows/cases where conditions are true. Unlike base subsetting with `[`, rows where the condition evaluates to `NA` are dropped.
 
-------------------------------------------------------------------------
-
-#### **`select`**
-
--   Select/Rename Variables By Name.
-    -   Useful Filter Functions
-        -   `contains(match)`, `num_range(prefix, range)`
-        -   `ends_with(match)`, `one_of(...)`
-        -   `matches(matxh)`, `starts_with(match)`
-
-Ussage - **`select_(.data, ...)`**
-- As well as using existing functions like `:` and `c`, there are a number of special functions that only work inside select. To drop variables, use `-`. `select()` keeps only the variables mentioned; `rename()` keeps all variables.
-
-------------------------------------------------------------------------
-
 #### **`mutate`**
 
 -   Add New Variables.
 
 Ussage - **`mutate_(.data, ...)`**
 - Mutate adds new variables and preserves existing; transmute drops existing variables.
-
-------------------------------------------------------------------------
-
-#### **`group_by`**
-
--   Group By One Or More Variables
-    -   Useful Filter Functions
-        -   `==`, `>`, `>=`
-        -   `&`, `|`, `!`, `xor()`
-        -   `is.na()`, `!is.na()`
-        -   `between()`, `%in%`
-
-Ussage - **`group_by(.data, ..., add = FALSE)`**
-- When add = FALSE, the default, group\_by() will override existing groups. To add to the existing groups, use add = TRUE. Most data operations are done on groups defined by variables. `group_by()` takes an existing tbl and converts it into a grouped tbl where operations are performed "by group". `ungroup()` removes grouping.
-
-------------------------------------------------------------------------
 
 #### **`summarise`**
 
@@ -225,19 +196,6 @@ Ussage - **`group_by(.data, ..., add = FALSE)`**
 Ussage - **`summarise(.data, ...)`**
 - `summarise()` is typically used on grouped data created by `group_by()`. The output will have one row for each group.
 
-------------------------------------------------------------------------
-
-#### **`arrange`**
-
--   Arrange Rows By Variables.
-
-Ussage - **`arrange(.data, ..., .by_group = FALSE)`**
-- Use desc() to sort a variable in descending order.
-
-**The `dplyr` functions above when applied to a `data frame`, row names are silently dropped. To preserve, convert to an explicit variable with `tibble::rownames_to_column()`.**
-
-------------------------------------------------------------------------
-
 #### **`rename`**
 
 -   Modify Names By Name, Not Position.
@@ -247,7 +205,7 @@ Ussage - **`rename(x, replace, warn_missing = TRUE, warn_duplicated = TRUE)`**
 
 ------------------------------------------------------------------------
 
-#### Import datasets using the `readr` and the `{base}` `r` functions.
+#### Import datasets with `readr` and the `{base}R` functions.
 
 ``` r
 options(readr.num_columns = 0) 
@@ -265,10 +223,10 @@ dim(gapminder_school) # dimension of the data, 175 countries and 41 years
 
     ## [1] 175  41
 
-`dplyr` Demos
-=============
+`dplyr::` demo
+==============
 
-### Tibble diff
+### tbl\_df()
 
 ``` r
 gapminder_school_df <- as.data.frame(gapminder_school) # change to dataframe for example
@@ -292,15 +250,22 @@ This prints okay but the next one looks better, as explained above rownames are 
 
 ``` r
 gapminder_school_tbl <- tbl_df(gapminder_school_df) # convert data into tibble diff
-head(rownames_to_column(gapminder_school_tbl), n = 3)
+head(rownames_to_column(gapminder_school_tbl), n = 10)
 ```
 
-    ## # A tibble: 3 x 42
-    ##   rowname `Row Labels` `1970` `1971` `1972` `1973` `1974` `1975` `1976`
-    ##   <chr>   <fct>         <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
-    ## 1 1       Afghanistan     1      1.1    1.1    1.2    1.3    1.3    1.4
-    ## 2 2       Albania         6.5    6.7    6.9    7      7.2    7.3    7.5
-    ## 3 3       Algeria         1.9    2      2.1    2.2    2.3    2.4    2.5
+    ## # A tibble: 10 x 42
+    ##    rowname `Row Labels` `1970` `1971` `1972` `1973` `1974` `1975` `1976`
+    ##    <chr>   <fct>         <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
+    ##  1 1       Afghanistan     1      1.1    1.1    1.2    1.3    1.3    1.4
+    ##  2 2       Albania         6.5    6.7    6.9    7      7.2    7.3    7.5
+    ##  3 3       Algeria         1.9    2      2.1    2.2    2.3    2.4    2.5
+    ##  4 4       Angola          2.3    2.4    2.5    2.7    2.8    2.9    3  
+    ##  5 5       Antigua and…    8      8.2    8.4    8.6    8.7    8.9    9.1
+    ##  6 6       Argentina       7      7.1    7.3    7.4    7.6    7.7    7.8
+    ##  7 7       Armenia         7.8    7.9    8.1    8.2    8.4    8.5    8.7
+    ##  8 8       Australia       9.9   10     10.2   10.3   10.4   10.5   10.6
+    ##  9 9       Austria         9.3    9.4    9.5    9.6    9.8    9.9   10  
+    ## 10 10      Azerbaijan      7.6    7.8    8      8.2    8.4    8.6    8.8
     ## # ... with 33 more variables: `1977` <dbl>, `1978` <dbl>, `1979` <dbl>,
     ## #   `1980` <dbl>, `1981` <dbl>, `1982` <dbl>, `1983` <dbl>, `1984` <dbl>,
     ## #   `1985` <dbl>, `1986` <dbl>, `1987` <dbl>, `1988` <dbl>, `1989` <dbl>,
@@ -309,7 +274,7 @@ head(rownames_to_column(gapminder_school_tbl), n = 3)
     ## #   `2000` <dbl>, `2001` <dbl>, `2002` <dbl>, `2003` <dbl>, `2004` <dbl>,
     ## #   `2005` <dbl>, `2006` <dbl>, `2007` <dbl>, `2008` <dbl>, `2009` <dbl>
 
-### rename
+### `rename()`
 
 Use the `dplyr::rename` to rename the "Row Labels"" column to "country""
 
@@ -506,7 +471,10 @@ The `tidyr` Functions
         -   `c(x, !! x)` selects the x column within the data frame and the column referred to by the object x defined in the context (which can contain either a column name as string or a column position)
 
 Ussage - **`gather(data, key = "key", value = "value", ..., na.rm = FALSE, convert = FALSE, factor_key = FALSE)`**
-- `key, value`, names of new key and value columns, as strings or symbols. `...`, A selection of columns. If empty, all variables are selected. You can supply bare variable names, select all variables between x and z with x:z, exclude y with -y. `na.rm`, If TRUE, will remove rows from output where the value column in NA.`convert`, If TRUE will automatically run type.convert() on the key column. This is useful if the column names are actually numeric, integer, or logical. `factor_key`, If FALSE, the default, the key values will be stored as a character vector. If TRUE, will be stored as a factor, which preserves the original ordering of the columns.
+- `key, value`, names of new key and value of "key" columns, as strings or symbols.
+- `...`, A selection of columns. If empty, all variables are selected, ect.. between x and z with x:z, exclude y with -y.
+- `na.rm`, If TRUE, remove rows from output where the value column is `NA` - `convert`, If TRUE, automatically runs type.convert() on the key column. This is useful if the column names are actually numeric, integer, or logical.
+- `factor_key`, If FALSE, default, the key values will be stored as a character vector. If TRUE, will stored as a factor, which preserves the original ordering of the columns.
 
 ------------------------------------------------------------------------
 
@@ -514,13 +482,11 @@ Ussage - **`gather(data, key = "key", value = "value", ..., na.rm = FALSE, conve
 
 -   Spread A Key-Value Pair Across Multiple Columns
     -   Useful Filter Functions
-        -   data expression like `x` or an expression like `x:y` or `c(x, y)`. In a data expression, you can only refer to columns from the data frame. Everything else is a context expression in which you can only refer to objects that you have defined with `<-`. -`col1:col3` is a data expression that refers to data columns, while `seq(start, end)` is a context expression that refers to objects from the contexts.
-        -   `c(x, !! x)` selects the x column within the data frame and the column referred to by the object x defined in the context (which can contain either a column name as string or a column position)
-
-Ussage - **`spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)`**
-- `fill`, If set, missing values will be replaced with this value. Note that there are two types of missingness in the input: explicit missing values (i.e. NA), and implicit missings, rows that simply aren't present. Both types of missing value will be replaced by fill. `convert`, If TRUE, type.convert() with asis = TRUE will be run on each of the new columns. This is useful if the value column was a mix of variables that was coerced to a string. If the class of the value column was factor or date, note that will not be true of the new columns that are produced, which are coerced to character before type conversion. `drop`, If FALSE, will keep factor levels that don't appear in the data, filling in missing combinations with fill. `sep`, If NULL, the column names will be taken from the values of key variable. If non-NULL, the column names will be given by "<key_name><sep><key_value>".
-
-\*[Hadley notes](http://vita.had.co.nz/papers/tidy-data.pdf) these terms are imprecise but good enough for my little noodle
+        -   same with gather (see above) Ussage - **`spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, sep = NULL)`**
+-   `fill`, If set, missing values will be replaced with that value. Note 2 types of missingness in the input: explicit missing values (`NA`), and implicit missings, rows that simply aren't present. Both types will be replaced by fill.
+-   `convert`, If TRUE, type.convert() with asis = TRUE will be run on each of the new columns. This is useful if the value column was a mix of variables that was coerced to a string. If the class of the value column was factor or date, note that will not be true of the new columns that are produced, which are coerced to character before type conversion.
+-   `drop`, If FALSE, will keep factor levels that don't appear in the data, filling in missing combinations with fill.
+-   `sep`, If NULL, the column names will be taken from the values of key variable. If non-NULL, the column names will be given by "<key_name><sep><key_value>".
 
 ------------------------------------------------------------------------
 
@@ -587,62 +553,6 @@ gapminder_school_filtered %>%
     ## 4      Angola    Africa  2.5  3.1  3.8  4.4  4.8  5.3  5.7  6.0
     ## 5   Argentina  Americas  7.3  8.0  8.6  9.1  9.6 10.1 10.6 11.0
     ## 6   Australia   Oceania 10.2 10.7 11.1 11.4 11.7 11.9 12.1 12.3
-
-Additional Demos
-================
-
-### gather() part 2
-
-``` r
-# Use gather and create a column year and meanschool and use columb 2 to 9 as key
-
-gapminder_school_filtered %>% 
-  gather(key = year, value =  meanSchool, 2:9) %>% 
-  arrange(country) %>% 
-  head()
-```
-
-    ##       country continent year meanSchool
-    ## 1 Afghanistan      Asia 1972        1.1
-    ## 2 Afghanistan      Asia 1977        1.4
-    ## 3 Afghanistan      Asia 1982        1.8
-    ## 4 Afghanistan      Asia 1987        2.1
-    ## 5 Afghanistan      Asia 1992        2.3
-    ## 6 Afghanistan      Asia 1997        2.6
-
-### gather() part 3 - define year using subset of `colnames`
-
-``` r
-gapminder_school_filtered %>% 
-  gather(key = year, value =  meanSchool,  
-         names(gapminder_school_filtered)[2:9]) %>% 
-  head()
-```
-
-    ##       country continent year meanSchool
-    ## 1 Afghanistan      Asia 1972        1.1
-    ## 2     Albania    Europe 1972        6.9
-    ## 3     Algeria    Africa 1972        2.1
-    ## 4      Angola    Africa 1972        2.5
-    ## 5   Argentina  Americas 1972        7.3
-    ## 6   Australia   Oceania 1972       10.2
-
-### spread() - part 2 with continent has the `colnames` and `meanSchool` as value
-
-``` r
-gapminder_school_filtered %>% 
-  gather(year, meanSchool, -c("country", "continent")) %>% 
-  spread(continent, meanSchool) %>%
-  head()
-```
-
-    ##       country year Africa Americas Asia Europe Oceania
-    ## 1 Afghanistan 1972     NA       NA  1.1     NA      NA
-    ## 2 Afghanistan 1977     NA       NA  1.4     NA      NA
-    ## 3 Afghanistan 1982     NA       NA  1.8     NA      NA
-    ## 4 Afghanistan 1987     NA       NA  2.1     NA      NA
-    ## 5 Afghanistan 1992     NA       NA  2.3     NA      NA
-    ## 6 Afghanistan 1997     NA       NA  2.6     NA      NA
 
 A `dplyr` join walkthrough
 ==========================
@@ -731,93 +641,6 @@ left_join(gapminder, gapminder_tidyschool)
 ### anti\_join()
 
 > anti\_join(x, y): Return all rows from x where there are not matching values in y, keeping just columns from x. This is a filtering join.
-
-``` r
-anti_join(gapminder, gapminder_tidyschool)
-```
-
-    ## # A tibble: 640 x 6
-    ##    country     continent  year lifeExp      pop gdpPercap
-    ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>
-    ##  1 Afghanistan Asia       1952    28.8  8425333      779.
-    ##  2 Afghanistan Asia       1957    30.3  9240934      821.
-    ##  3 Afghanistan Asia       1962    32.0 10267083      853.
-    ##  4 Afghanistan Asia       1967    34.0 11537966      836.
-    ##  5 Albania     Europe     1952    55.2  1282697     1601.
-    ##  6 Albania     Europe     1957    59.3  1476505     1942.
-    ##  7 Albania     Europe     1962    64.8  1728137     2313.
-    ##  8 Albania     Europe     1967    66.2  1984060     2760.
-    ##  9 Algeria     Africa     1952    43.1  9279525     2449.
-    ## 10 Algeria     Africa     1957    45.7 10270856     3014.
-    ## # ... with 630 more rows
-
-### inner\_join() part 2
-
-``` r
-inner_join(gapminder_tidyschool, gapminder) %>% 
-  head()
-```
-
-    ## Joining, by = c("country", "continent", "year")
-
-    ##       country continent year meanSchool lifeExp      pop  gdpPercap
-    ## 1 Afghanistan      Asia 1972        1.1  36.088 13079460   739.9811
-    ## 2     Albania    Europe 1972        6.9  67.690  2263554  3313.4222
-    ## 3     Algeria    Africa 1972        2.1  54.518 14760787  4182.6638
-    ## 4      Angola    Africa 1972        2.5  37.928  5894858  5473.2880
-    ## 5   Argentina  Americas 1972        7.3  67.065 24779799  9443.0385
-    ## 6   Australia   Oceania 1972       10.2  71.930 13177000 16788.6295
-
-Although, it looks similiar to the `inner_join()` from above but this one does not have the `meanSchool` column as it is not present in the gapminder dataset.
-
-### semi\_join() part 2
-
-``` r
-semi_join(gapminder_tidyschool, gapminder) %>% 
-  head()
-```
-
-    ##       country continent year meanSchool
-    ## 1 Afghanistan      Asia 1972        1.1
-    ## 2     Albania    Europe 1972        6.9
-    ## 3     Algeria    Africa 1972        2.1
-    ## 4      Angola    Africa 1972        2.5
-    ## 5   Argentina  Americas 1972        7.3
-    ## 6   Australia   Oceania 1972       10.2
-
-Only retains column from the `gapminder_tidyschool` and all matching row in `gapminder`.
-
-### left\_join() part 2
-
-``` r
-left_join(gapminder_tidyschool, gapminder) %>% 
-  head()
-```
-
-    ##       country continent year meanSchool lifeExp      pop  gdpPercap
-    ## 1 Afghanistan      Asia 1972        1.1  36.088 13079460   739.9811
-    ## 2     Albania    Europe 1972        6.9  67.690  2263554  3313.4222
-    ## 3     Algeria    Africa 1972        2.1  54.518 14760787  4182.6638
-    ## 4      Angola    Africa 1972        2.5  37.928  5894858  5473.2880
-    ## 5   Argentina  Americas 1972        7.3  67.065 24779799  9443.0385
-    ## 6   Australia   Oceania 1972       10.2  71.930 13177000 16788.6295
-
-In contrast to the `left_join()` doest have the `meanScool` column and it does not contain all the rows from the `gapminder` dataset.
-
-### anti\_join() part 2
-
-``` r
-anti_join(gapminder_tidyschool, gapminder) %>% 
-  head()
-```
-
-    ## [1] country    continent  year       meanSchool
-    ## <0 rows> (or 0-length row.names)
-
-No rows indicate all of the rows in`gapminder_tidyschool` matches all the rows in the gapminder dataset.
-
-Additional Demos
-================
 
 ### right\_join()
 
@@ -978,5 +801,145 @@ setdiff(gapminder_school$country, gapminder$country) %>%
     ##  9 Cyprus              
     ## 10 Czech Rep.          
     ## # ... with 32 more rows
+
+``` r
+anti_join(gapminder, gapminder_tidyschool)
+```
+
+    ## # A tibble: 640 x 6
+    ##    country     continent  year lifeExp      pop gdpPercap
+    ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>
+    ##  1 Afghanistan Asia       1952    28.8  8425333      779.
+    ##  2 Afghanistan Asia       1957    30.3  9240934      821.
+    ##  3 Afghanistan Asia       1962    32.0 10267083      853.
+    ##  4 Afghanistan Asia       1967    34.0 11537966      836.
+    ##  5 Albania     Europe     1952    55.2  1282697     1601.
+    ##  6 Albania     Europe     1957    59.3  1476505     1942.
+    ##  7 Albania     Europe     1962    64.8  1728137     2313.
+    ##  8 Albania     Europe     1967    66.2  1984060     2760.
+    ##  9 Algeria     Africa     1952    43.1  9279525     2449.
+    ## 10 Algeria     Africa     1957    45.7 10270856     3014.
+    ## # ... with 630 more rows
+
+Additional Demos
+================
+
+### gather() part 2
+
+``` r
+# Use gather and create a column year and meanschool and use columb 2 to 9 as key
+
+gapminder_school_filtered %>% 
+  gather(key = year, value =  meanSchool, 2:9) %>% 
+  arrange(country) %>% 
+  head()
+```
+
+    ##       country continent year meanSchool
+    ## 1 Afghanistan      Asia 1972        1.1
+    ## 2 Afghanistan      Asia 1977        1.4
+    ## 3 Afghanistan      Asia 1982        1.8
+    ## 4 Afghanistan      Asia 1987        2.1
+    ## 5 Afghanistan      Asia 1992        2.3
+    ## 6 Afghanistan      Asia 1997        2.6
+
+### gather() part 3 - define year using subset of `colnames`
+
+``` r
+gapminder_school_filtered %>% 
+  gather(key = year, value =  meanSchool,  
+         names(gapminder_school_filtered)[2:9]) %>% 
+  head()
+```
+
+    ##       country continent year meanSchool
+    ## 1 Afghanistan      Asia 1972        1.1
+    ## 2     Albania    Europe 1972        6.9
+    ## 3     Algeria    Africa 1972        2.1
+    ## 4      Angola    Africa 1972        2.5
+    ## 5   Argentina  Americas 1972        7.3
+    ## 6   Australia   Oceania 1972       10.2
+
+### spread() - part 2 with continent has the `colnames` and `meanSchool` as value
+
+``` r
+gapminder_school_filtered %>% 
+  gather(year, meanSchool, -c("country", "continent")) %>% 
+  spread(continent, meanSchool) %>%
+  head()
+```
+
+    ##       country year Africa Americas Asia Europe Oceania
+    ## 1 Afghanistan 1972     NA       NA  1.1     NA      NA
+    ## 2 Afghanistan 1977     NA       NA  1.4     NA      NA
+    ## 3 Afghanistan 1982     NA       NA  1.8     NA      NA
+    ## 4 Afghanistan 1987     NA       NA  2.1     NA      NA
+    ## 5 Afghanistan 1992     NA       NA  2.3     NA      NA
+    ## 6 Afghanistan 1997     NA       NA  2.6     NA      NA
+
+### inner\_join() part 2
+
+``` r
+inner_join(gapminder_tidyschool, gapminder) %>% 
+  head()
+```
+
+    ## Joining, by = c("country", "continent", "year")
+
+    ##       country continent year meanSchool lifeExp      pop  gdpPercap
+    ## 1 Afghanistan      Asia 1972        1.1  36.088 13079460   739.9811
+    ## 2     Albania    Europe 1972        6.9  67.690  2263554  3313.4222
+    ## 3     Algeria    Africa 1972        2.1  54.518 14760787  4182.6638
+    ## 4      Angola    Africa 1972        2.5  37.928  5894858  5473.2880
+    ## 5   Argentina  Americas 1972        7.3  67.065 24779799  9443.0385
+    ## 6   Australia   Oceania 1972       10.2  71.930 13177000 16788.6295
+
+Although, it looks similiar to the `inner_join()` from above but this one does not have the `meanSchool` column as it is not present in the gapminder dataset.
+
+### semi\_join() part 2
+
+``` r
+semi_join(gapminder_tidyschool, gapminder) %>% 
+  head()
+```
+
+    ##       country continent year meanSchool
+    ## 1 Afghanistan      Asia 1972        1.1
+    ## 2     Albania    Europe 1972        6.9
+    ## 3     Algeria    Africa 1972        2.1
+    ## 4      Angola    Africa 1972        2.5
+    ## 5   Argentina  Americas 1972        7.3
+    ## 6   Australia   Oceania 1972       10.2
+
+Only retains column from the `gapminder_tidyschool` and all matching row in `gapminder`.
+
+### left\_join() part 2
+
+``` r
+left_join(gapminder_tidyschool, gapminder) %>% 
+  head()
+```
+
+    ##       country continent year meanSchool lifeExp      pop  gdpPercap
+    ## 1 Afghanistan      Asia 1972        1.1  36.088 13079460   739.9811
+    ## 2     Albania    Europe 1972        6.9  67.690  2263554  3313.4222
+    ## 3     Algeria    Africa 1972        2.1  54.518 14760787  4182.6638
+    ## 4      Angola    Africa 1972        2.5  37.928  5894858  5473.2880
+    ## 5   Argentina  Americas 1972        7.3  67.065 24779799  9443.0385
+    ## 6   Australia   Oceania 1972       10.2  71.930 13177000 16788.6295
+
+In contrast to the `left_join()` doest have the `meanScool` column and it does not contain all the rows from the `gapminder` dataset.
+
+### anti\_join() part 2
+
+``` r
+anti_join(gapminder_tidyschool, gapminder) %>% 
+  head()
+```
+
+    ## [1] country    continent  year       meanSchool
+    ## <0 rows> (or 0-length row.names)
+
+No rows indicate all of the rows in`gapminder_tidyschool` matches all the rows in the gapminder dataset.
 
 ![modelstidy](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
