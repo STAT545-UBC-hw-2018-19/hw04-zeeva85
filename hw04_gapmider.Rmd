@@ -509,21 +509,18 @@ gapminder_school_filtered %>%
 7. **`union`**
 8. **`intersect`** 
 9. **`setdiff`**   
-      
-        
-          
    
 ### inner_join()
 > inner_join(x, y): Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned. This is a mutating join.
-
+   
 
 ```{r warning=FALSE, message=FALSE}
 gapminder2 <- inner_join(gapminder, gapminder_tidyschool)
   head(gapminder2)
 ```
-
+   
 Match and join `gapminder` dataset which has `r n_distinct(gapminder$country)` country into `gapminder_tidyschool` which has `r n_distinct(gapminder_tidyschool$country)` country which should only match `r n_distinct(gapminder_tidyschool$country)*n_distinct(gapminder_tidyschool$year)`, which looks correct.
-
+  
 ### semi_join()
 > semi_join(x, y): Return all rows from x where there are matching values in y, keeping just columns from x. A semi join differs from an inner join because an inner join will return one row of x for each matching row of y, where a semi join will never duplicate rows of x. This is a filtering join.
 
@@ -565,7 +562,7 @@ full_join(gapminder, gapminder_tidyschool)
 
 ![bonuscontent][bonuscontent] 
 
-[bonuscontent]:https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png  
+[bonuscontent]:https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png =100x20 
   
 ### union()  
 > rows that appear in both `x` and `y`
