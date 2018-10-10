@@ -3,7 +3,6 @@ A not so minimal guide to `readr`, `dplyr` and `tidyr`
 Seevasant Indran
 09 October, 2018
 
--   [WARNING!! install.packages()+ CONTENT ME](#warning-install.packages-content-me)
 -   [A not so minimal guide to `readr`, `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-readr-dplyr-and-tidyr.)
     -   [Why Data Manipulation](#why-data-manipulation)
     -   [Examples of **Messy** vs **Tidy** data](#examples-of-messy-vs-tidy-data)
@@ -56,12 +55,8 @@ Seevasant Indran
     -   [left\_join() part 2](#left_join-part-2)
     -   [anti\_join() part 2](#anti_join-part-2)
 
-<details> <summary>
+<details> <summary> \#\#\#\# WARNING!! install.packages()+ CONTENT </summary>
 
-#### WARNING!! install.packages()+ CONTENT ME
-
-</summary>
-<p>
 Package needed:-
 - [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [tibble](http://tibble.tidyverse.org/))
 - [gapminder](https://cran.r-project.org/web/packages/gapminder/index.html)
@@ -71,7 +66,6 @@ Package needed:-
 
     install.packages("packageName", dependencies = TRUE)
 
-</p>
 </details>
 
 A not so minimal guide to `readr`, `dplyr` and `tidyr`.
