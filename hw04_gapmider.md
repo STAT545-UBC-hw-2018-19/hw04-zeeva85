@@ -8,11 +8,8 @@ Seevasant Indran
     -   [Why Data Manipulation](#why-data-manipulation)
     -   [Examples of a **Messy data** vs some **Tidy data**](#examples-of-a-messy-data-vs-some-tidy-data)
     -   [Gapminder tidy `<-` untidy walkthough](#gapminder-tidy---untidy-walkthough)
-        -   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
--   [Summary of the main `dplyr` Functions](#summary-of-the-main-dplyr-functions)
-    -   [Quick data.frame](#quick-data.frame)
-    -   [The most useful `dplyr` function](#the-most-useful-dplyr-function)
-    -   [the pipe operator](#the-pipe-operator)
+-   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
+    -   [Summary of the main `dplyr` Functions](#summary-of-the-main-dplyr-functions)
 -   [Relationship to the other functions](#relationship-to-the-other-functions)
     -   [Tibble diff](#tibble-diff)
     -   [{base} `R` and `dplyr`](#base-r-and-dplyr)
@@ -119,10 +116,10 @@ Gapminder tidy `<-` untidy walkthough
 
                                                                         
 
-### A `dplyr` walkthrough
+A `dplyr` walkthrough
+=====================
 
-Summary of the main `dplyr` Functions
-=====================================
+### Summary of the main `dplyr` Functions
 
 #### Quick data.frame
 
