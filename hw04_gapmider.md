@@ -93,10 +93,13 @@ The fundamental processes to follow to understand the knowledge and insight a da
 
 According to Hadley:-
 
-> Tidy data makes it easy for an analyst or a computer to extract needed variables because it provides a standard way of structuring a dataset. Untidy you need to use different strategies to extract different variables. This slows analysis and invites errors. If you consider how many data analysis operations involve all of the values in a variable (every aggregation function), you can see how important it is to extract these values in a simple, standard way. Tidy data is particularly well suited for vectorised programming languages like R, because the layout ensures that values of different variables from the same observation are always paired.
+> Tidy data makes it easy for an analyst or a computer to extract needed variables because it provides a standard way of structuring a dataset. Different strategies to extract different variables are needed for untidy data. This slows analysis and invites errors. If you consider how many data analysis operations involve all of the values in a variable (every aggregation function), you can see how important it is to extract these values in a simple, standard way. Tidy data is particularly well suited for vectorised programming languages like R, because the layout ensures that values of different variables from the same observation are always paired.
 > \*[Source](http://vita.had.co.nz/papers/tidy-data.pdf)
 
-In tidy data: 1. Each variable forms a column. 2. Each observation forms a row. 3. Each type of observational unit forms a table.
+In tidy data:
+1. Each variable forms a column.
+2. Each observation forms a row.
+3. Each type of observational unit forms a table.
 
 ![tidydat](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/tidy_defin.png)
 
