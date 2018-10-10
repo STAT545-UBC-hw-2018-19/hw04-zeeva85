@@ -111,7 +111,7 @@ Gapminder tidy `<-` untidy walkthough
 
                                                                                                         
 
-> Untidy gapminder (above) dataset to the tidy gapminder (below)
+> **Untidy gapminder (above) dataset to the tidy gapminder (below)**
 
                                                                                                         
 
