@@ -13,8 +13,6 @@ Seevasant Indran
     -   [Tibble diff](#tibble-diff)
     -   [{base} `R` and `dplyr`](#base-r-and-dplyr)
     -   [Chaining](#chaining)
--   [A `tidyr` walkthrough](#a-tidyr-walkthrough)
-    -   [Summary of the `tidyr` main functions](#summary-of-the-tidyr-main-functions)
 -   [The `dplyr` Functions](#the-dplyr-functions)
     -   [Most usefull `dplyr` functions for data manipulation](#most-usefull-dplyr-functions-for-data-manipulation)
 -   [`dplyr::`](#dplyr)
@@ -28,6 +26,8 @@ Seevasant Indran
     -   [summarise()](#summarise-1)
     -   [group\_by()](#group_by)
     -   [Super `%>%` pipe](#super-pipe)
+-   [A `tidyr` walkthrough](#a-tidyr-walkthrough)
+    -   [Summary of the `tidyr` main functions](#summary-of-the-tidyr-main-functions)
 -   [The `tidyr` Functions](#the-tidyr-functions)
     -   [2 most important `tidyr` for data manipulation](#most-important-tidyr-for-data-manipulation)
 -   [`tidyr::`](#tidyr)
@@ -178,18 +178,6 @@ List of **dplyr** functions and the `{base}R` functions they're related to:
     print(conclusion)
 
 *Basically previous input in chain supplied as argument 1 to function on right side.*
-
-A `tidyr` walkthrough
-=====================
-
-### Summary of the `tidyr` main functions
-
-List of **tidyr** functions and the relationship to the **reshape2** functions:
-
-| reshape2 Function | tidyr Function | Special Powers |
-|-------------------|----------------|----------------|
-| `melt`            | `gather`       | long format\*  |
-| `dcast`           | `spread`       | wide format\*  |
 
 The `dplyr` Functions
 =====================
@@ -498,6 +486,18 @@ read.csv("https://query.data.world/s/bpbbjyj7t6k2u6owizb7tr4fm4h4fq",
 # 
 # gapminder_school_filtered %>% ggplot(aes (x = continent , y = gapminder_school_filtered$`1972`) + geom_bar(position = "dodge", stat = "identity")
 ```
+
+A `tidyr` walkthrough
+=====================
+
+### Summary of the `tidyr` main functions
+
+List of **tidyr** functions and the relationship to the **reshape2** functions:
+
+| reshape2 Function | tidyr Function | Special Powers |
+|-------------------|----------------|----------------|
+| `melt`            | `gather`       | long format\*  |
+| `dcast`           | `spread`       | wide format\*  |
 
 The `tidyr` Functions
 =====================

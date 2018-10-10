@@ -157,18 +157,8 @@ print(conclusion)
 
 *Basically previous input in chain supplied as argument 1 to function on right side.*
 
-
-# A `tidyr` walkthrough   
-    
-### Summary of the `tidyr` main functions
-List of **tidyr** functions and the relationship to the **reshape2** functions:
-
-reshape2 Function    | tidyr Function | Special Powers
----------------------|-------------------|----------------------------
-`melt`               |  `gather`         | long format\*
-`dcast`              |  `spread`         | wide format\*
-
-
+   
+   
 # The `dplyr` Functions   
    
 ### Most usefull `dplyr` functions for data manipulation
@@ -432,7 +422,17 @@ read.csv("https://query.data.world/s/bpbbjyj7t6k2u6owizb7tr4fm4h4fq",
 # gapminder_school_filtered %>% ggplot(aes (x = continent , y = gapminder_school_filtered$`1972`) + geom_bar(position = "dodge", stat = "identity")
 ```
 
+# A `tidyr` walkthrough   
+    
+### Summary of the `tidyr` main functions
+List of **tidyr** functions and the relationship to the **reshape2** functions:
 
+reshape2 Function    | tidyr Function | Special Powers
+---------------------|-------------------|----------------------------
+`melt`               |  `gather`         | long format\*
+`dcast`              |  `spread`         | wide format\*
+  
+   
 
 # The `tidyr` Functions
 
