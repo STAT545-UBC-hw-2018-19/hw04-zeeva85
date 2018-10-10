@@ -5,7 +5,7 @@ Seevasant Indran
 
 -   [WARNING!! package+ CONTENT](#warning-package-content)
 -   [A not so minimal guide to `readr`, `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-readr-dplyr-and-tidyr.)
-    -   [**Why Data Manipulation**](#why-data-manipulation)
+    -   [Why Data Manipulation](#why-data-manipulation)
     -   [Examples of a **Messy data** vs some **Tidy data**](#examples-of-a-messy-data-vs-some-tidy-data)
     -   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
 -   [Summary of the main `dplyr` Functions](#summary-of-the-main-dplyr-functions)
@@ -81,7 +81,7 @@ The fundamental processes to follow to understand the knowledge and insight a da
 3.  Statistical analysis/modeling
 4.  Organization of results
 
-#### **Why Data Manipulation**
+#### Why Data Manipulation
 
 > 80% of data analysis is spent on the process of cleaning and preparing the data. (Dasu and Johnson, 2003)
 
@@ -93,8 +93,12 @@ The fundamental processes to follow to understand the knowledge and insight a da
 
 According to Hadley:-
 
-> Tidy data makes it easy for an analyst or a computer to extract needed variables because it provides a standard way of structuring a dataset. Compare. Table 3 to Table 1: in Table 1 you need to use different strategies to extract different variables. This slows analysis and invites errors. If you consider how many data analysis operations involve all of the values in a variable (every aggregation function), you can see how important it is to extract these values in a simple, standard way. Tidy data is particularly well suited for vectorised programming languages like R, because the layout ensures that values of different variables from the same observation are always paired.
+> Tidy data makes it easy for an analyst or a computer to extract needed variables because it provides a standard way of structuring a dataset. Untidy you need to use different strategies to extract different variables. This slows analysis and invites errors. If you consider how many data analysis operations involve all of the values in a variable (every aggregation function), you can see how important it is to extract these values in a simple, standard way. Tidy data is particularly well suited for vectorised programming languages like R, because the layout ensures that values of different variables from the same observation are always paired.
 > \*[Source](http://vita.had.co.nz/papers/tidy-data.pdf)
+
+In tidy data: 1. Each variable forms a column. 2. Each observation forms a row. 3. Each type of observational unit forms a table.
+
+![tidydat](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/tidy_defin.png)
 
 ### A `dplyr` walkthrough
 
@@ -214,7 +218,7 @@ options(readr.num_columns = 0)
 
 gapminder_school <- read.csv("https://query.data.world/s/bpbbjyj7t6k2u6owizb7tr4fm4h4fq", header = TRUE, check.names = FALSE) 
 
-gapminder_mortality <- read_csv(file.path(getwd(), "Infant mortality rate per 1 000 births.csv"), col_names = TRUE) # Aditional data, not used
+#gapminder_mortality <- read_csv(file.path(getwd(), "Infant mortality rate per 1 000 births.csv"), col_names = TRUE) # Aditional data, not used
 ```
 
 ``` r
