@@ -91,7 +91,7 @@ In tidy data:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    
-##### Untidy gapminder (above) vs tidy gapminder (below). 
+##### Untidy gapminder (above) vs tidy gapminder (below), gapminder2 dataset is in the [ending credits](#ending-credits-gapminder2) section. 
 Notice the differences:-   
   
 - dimensions   
@@ -615,13 +615,13 @@ intersect(gapminder$country, gapminder_school$country) %>%
 > rows that appear in `x` but not `y`
 
 ```{r}
-#  rows gapminder$country vs gapminder_school$country, prints difference
+#  rows gapminder$country vs gapminder_school$country, prints differences
 setdiff(gapminder$country, gapminder_school$country) %>% 
   tbl_df() # not required, when used, prints nice
 
 
 
-# gapminder_school$country vs gapminder$country diffence 
+# gapminder_school$country vs gapminder$country diffences 
 setdiff(gapminder_school$country, gapminder$country) %>% 
   tbl_df()
 ```
@@ -698,9 +698,15 @@ anti_join(gapminder_tidyschool, gapminder) %>%
 No rows indicate all of the rows in`gapminder_tidyschool` matches all the rows in the gapminder dataset.
 
 
-```{r, include=FALSE}
+# Ending credits: gapminder2
 
-# 
+```{r}
+gapminder %>% tbl_df()
+gapminder_school %>%  tbl_df()
+gapminder2 %>% tbl_df() 
+```
+```{r, extragapminderdatachunk, include=FALSE}
+
 # gapminder_mortality_filtered <- gapminder_mortality %>% 
 #   filter(country %in% gapminder$country)
 # 
@@ -718,12 +724,5 @@ No rows indicate all of the rows in`gapminder_tidyschool` matches all the rows i
 # names(global_carbon)
 # 
 
-```
-
-
-```{r}
-gapminder %>% tbl_df()
-gapminder_school %>%  tbl_df()
-gapminder2 %>% tbl_df() 
 ```
 
