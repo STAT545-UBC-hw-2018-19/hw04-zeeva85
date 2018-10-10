@@ -3,11 +3,10 @@ A not so minimal guide to `readr`, `dplyr` and `tidyr`
 Seevasant Indran
 09 October, 2018
 
-Table of contents
+## Table of contents
 <details>
   <summary>
-Table of contents  
-==
+Table of contents
   </summary>
   
 
