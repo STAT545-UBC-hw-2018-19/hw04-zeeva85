@@ -1,7 +1,7 @@
 A not so minimal guide to `readr`, `dplyr` and `tidyr`
 ================
-Seevasant Indran
-09 October, 2018
+Seevasant Indran  
+09 October, 2018  
 
 -   [Why Data Manipulation](#why-data-manipulation)
     -   [Examples of **Messy** vs **Tidy** data](#examples-of-messy-vs-tidy-data)
