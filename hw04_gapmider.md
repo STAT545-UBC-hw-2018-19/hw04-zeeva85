@@ -162,7 +162,13 @@ List of **dplyr** functions and the `{base}R` functions they're related to:
 
 `%>%` works similiarly to the `unix` pipe `|` and the `+` in `ggplot2`.
 
-pic
+    > conclusion <- import(obeservation) %>% 
+                        results %>% 
+                        group_by(headache) %>%
+                        discssion() %>% 
+                    plot() + common_plot_someting(aes(x = STAT545, y = hours_not_sleeping))
+                    
+    print(conclusion)
 
 *Basically previous input in chain supplied as argument 1 to function on right side.*
 
