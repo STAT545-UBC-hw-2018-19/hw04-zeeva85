@@ -19,6 +19,7 @@ Links to the `.md` and `.rmd` "Homework 04: Tidy data and joins"" for the STAT54
 [hw004.rmd]: https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/hw04_gapmider.Rmd
 
 [STAT545A_participation]: https://github.com/zeeva85/STAT545A_participation
+[Stat545Link]: http://stat545.com/Classroom/  
 
 About me
 --------
