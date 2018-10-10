@@ -65,7 +65,7 @@ Table of contents
 
   
 
-<details open> <summary> Packages required </summary>
+<details> <summary> Packages required </summary>
 
 -   [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [tibble](http://tibble.tidyverse.org/))
 -   [gapminder](https://cran.r-project.org/web/packages/gapminder/index.html)
