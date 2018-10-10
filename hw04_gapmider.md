@@ -37,7 +37,7 @@ Seevasant Indran
     -   [Some Data](#some-data)
     -   [gather()](#gather-1)
     -   [spread()](#spread-1)
--   [A `dplyr` join walkthrough](#a-dplyr-join-walkthrough)
+-   [A `dplyr::` walkthrough](#a-dplyr-walkthrough-1)
     -   [Summary of the 9 joint function](#summary-of-the-9-joint-function)
     -   [inner\_join()](#inner_join)
     -   [semi\_join()](#semi_join)
@@ -571,8 +571,8 @@ gapminder_school_filtered %>%
     ## 5   Argentina  Americas  7.3  8.0  8.6  9.1  9.6 10.1 10.6 11.0
     ## 6   Australia   Oceania 10.2 10.7 11.1 11.4 11.7 11.9 12.1 12.3
 
-A `dplyr` join walkthrough
-==========================
+A `dplyr::` walkthrough
+=======================
 
 ### Summary of the 9 joint function
 

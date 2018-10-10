@@ -492,7 +492,7 @@ gapminder_school_filtered %>%
 
 ```
    
-# A `dplyr` join walkthrough  
+# A `dplyr::` walkthrough  
    
   
 ### Summary of the 9 joint function  
@@ -508,8 +508,11 @@ gapminder_school_filtered %>%
 6. **`full_join()`** 
 7. **`union`**
 8. **`intersect`** 
-9. **`setdiff`** 
-
+9. **`setdiff`**   
+      
+        
+          
+   
 ### inner_join()
 > inner_join(x, y): Return all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned. This is a mutating join.
 
