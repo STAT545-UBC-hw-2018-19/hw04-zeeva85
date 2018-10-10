@@ -1,8 +1,13 @@
 A not so minimal guide to `readr`, `dplyr` and `tidyr`
 ================
-Seevasant Indran
-09 October, 2018
+Seevasant Indran  
+09 October, 2018  
 
+<details>
+  <summary>
+Table of contents
+  </summary>  
+   
 -   [Why Data Manipulation](#why-data-manipulation)
     -   [Examples of **Messy** vs **Tidy** data](#examples-of-messy-vs-tidy-data)
     -   [A gapminder tidy `<-` untidy walkthough](#a-gapminder-tidy---untidy-walkthough)
@@ -55,6 +60,10 @@ Seevasant Indran
     -   [left\_join() part 2](#left_join-part-2)
     -   [anti\_join() part 2](#anti_join-part-2)
 -   [Ending credits: gapminder2](#ending-credits-gapminder2)
+
+</details>  
+
+  
 
 <details open> <summary> Packages required </summary>
 
