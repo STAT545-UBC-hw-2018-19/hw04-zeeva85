@@ -6,7 +6,7 @@ Seevasant Indran
 -   [Why Data Manipulation](#why-data-manipulation)
     -   [Examples of **Messy** vs **Tidy** data](#examples-of-messy-vs-tidy-data)
     -   [A gapminder tidy `<-` untidy walkthough](#a-gapminder-tidy---untidy-walkthough)
-        -   [Untidy gapminder (above) vs tidy gapminder (below), gapminder2 dataset is in [ending credits](#ending-credits-gapminder2) section.](#untidy-gapminder-above-vs-tidy-gapminder-below-gapminder2-dataset-is-in-ending-credits-section.)
+        -   [Untidy gapminder (above) vs tidy gapminder (below), gapminder2 dataset is in ending credits section.](#untidy-gapminder-above-vs-tidy-gapminder-below-gapminder2-dataset-is-in-ending-credits-section.)
 -   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
     -   [Summary of the main `dplyr` functions](#summary-of-the-main-dplyr-functions)
 -   [Relationship to the other functions](#relationship-to-the-other-functions)
@@ -54,7 +54,6 @@ Seevasant Indran
     -   [semi\_join() part 2](#semi_join-part-2)
     -   [left\_join() part 2](#left_join-part-2)
     -   [anti\_join() part 2](#anti_join-part-2)
--   [Ending credits: gapminder2](#ending-credits-gapminder2)
 
 <details> <summary> Packages required </summary>
 
@@ -108,7 +107,7 @@ A gapminder tidy `<-` untidy walkthough
 
                                                                                                         
 
-##### Untidy gapminder (above) vs tidy gapminder (below), gapminder2 dataset is in [ending credits](#ending-credits-gapminder2) section.
+##### Untidy gapminder (above) vs tidy gapminder (below), gapminder2 dataset is in ending credits section.
 
 Notice the differences:-
 
@@ -988,9 +987,6 @@ anti_join(gapminder_tidyschool, gapminder) %>%
     ## <0 rows> (or 0-length row.names)
 
 No rows indicate all of the rows in`gapminder_tidyschool` matches all the rows in the gapminder dataset.
-
-Ending credits: gapminder2
-==========================
 
 ``` r
 gapminder %>% tbl_df()

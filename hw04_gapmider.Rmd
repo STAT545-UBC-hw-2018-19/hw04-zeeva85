@@ -91,7 +91,7 @@ In tidy data:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    
-##### Untidy gapminder (above) vs tidy gapminder (below), gapminder2 dataset is in [ending credits](#ending-credits-gapminder2) section. 
+##### Untidy gapminder (above) vs tidy gapminder (below), gapminder2 dataset is in ending credits section. 
 Notice the differences:-   
   
 - dimensions   
@@ -698,7 +698,6 @@ anti_join(gapminder_tidyschool, gapminder) %>%
 No rows indicate all of the rows in`gapminder_tidyschool` matches all the rows in the gapminder dataset.
 
 
-# Ending credits: gapminder2
 
 ```{r}
 gapminder %>% tbl_df()
