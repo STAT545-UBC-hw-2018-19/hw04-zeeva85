@@ -36,7 +36,6 @@ Table of contents
 -   [The `tidyr` Functions](#the-tidyr-functions)
     -   [Important `tidyr` for data manipulation](#important-tidyr-for-data-manipulation)
 -   [`tidyr::`](#tidyr)
-    -   [Some Data](#some-data)
     -   [gather()](#gather-1)
     -   [spread()](#spread-1)
 -   [A `dplyr::` walkthrough](#a-dplyr-walkthrough-1)
