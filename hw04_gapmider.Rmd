@@ -1,12 +1,15 @@
 ---
-title: "A not so minimal guide to `readr`, `dplyr` and `tidyr`"   
-date: "`r format(Sys.time(), '%d %B, %Y')`"
-author: Seevasant Indran
+title: "A not so minimal guide to `readr`, `dplyr` and `tidyr`"        
+date: "`r format(Sys.time(), '%d %B, %Y')`"            
+author: Seevasant Indran     
 output:  
   github_document:  
     toc: yes
 ---
-  
+       
+       
+       
+   
 <details open>
   <summary>
 Packages required
