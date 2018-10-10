@@ -55,7 +55,7 @@ Seevasant Indran
     -   [left\_join() part 2](#left_join-part-2)
     -   [anti\_join() part 2](#anti_join-part-2)
 
-<details> <summary> \#\#\#\# WARNING!! install.packages()+ CONTENT </summary>
+<details> <summary> **WARNING!! install.packages()+ CONTENT** </summary>
 
 Package needed:-
 - [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [tibble](http://tibble.tidyverse.org/))
