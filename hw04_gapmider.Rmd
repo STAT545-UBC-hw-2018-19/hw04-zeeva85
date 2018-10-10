@@ -5,6 +5,8 @@ author: Seevasant Indran
 output:
   github_document:
     toc: yes
+editor_options: 
+  chunk_output_type: inline
 ---
 
 
@@ -70,7 +72,7 @@ The fundamental processes to follow to understand the knowledge and insight a da
 
 **Makes data compatible for processing such as mathematical functions, visualization, hence reveals information and insights.**
 
-#### Examples of a **Messy data** vs some **Tidy data**
+### Examples of a **Messy data** vs some **Tidy data**
 
 ![messytidt][messytidt] 
 
@@ -348,7 +350,8 @@ gpmd_cont <- gapminder %>%
 
 gapminder_school_filtered <- gapminder_school_filtered %>%
   mutate(continent = gpmd_cont$continent)
-
+  
+head(gapminder_school_filtered) 
 ```
 
 
@@ -445,7 +448,7 @@ Ussage - **`spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, se
 ---
 
 
-# `tidyr` Demos
+# `tidyr::` demos
 ### Some Data
 
 
@@ -488,12 +491,15 @@ gapminder_school_filtered %>%
   head()
 
 ```
-
-
-# A `dplyr` join walkthrough
-
-### Summary of the 9 joint function
-
+   
+# A `dplyr` join walkthrough  
+   
+  
+### Summary of the 9 joint function  
+  
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/joins.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/joins.png)  
+   
+   
 1. **`inner_join()`** 
 2. **`semi_join()`**
 3. **`left_join()`** 
@@ -533,23 +539,31 @@ left_join(gapminder, gapminder_tidyschool)
 
 ### anti_join()
 > anti_join(x, y): Return all rows from x where there are not matching values in y, keeping just columns from x. This is a filtering join.
-
-
+  
+```{r warning=FALSE, message=FALSE}
+anti_join(gapminder, gapminder_tidyschool)
+```
+  
 ### right_join() 
 > right_join(x, y): Return all rows from y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned. This is a mutating join.
 
 ```{r warning=FALSE, message=FALSE}
 right_join(gapminder, gapminder_tidyschool)
 ```
-
+  
 ### full_join()  
 > full_join(x, y): Return all rows from x and y, and all columns from x and y.
-
+  
 ```{r warning=FALSE, message=FALSE}
 full_join(gapminder, gapminder_tidyschool)
 ```
 
+# Bonus content
 
+![bonuscont][bonuscont] 
+
+[bonuscont]:https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png
+   
 ### union()  
 > rows that appear in both `x` and `y`
 
@@ -560,7 +574,7 @@ union(gapminder$country, gapminder_school$country) %>%
 
 ```
 
-
+  
 ### intersect()  
 > rows that appear in both `x` and `y`
 
@@ -595,11 +609,6 @@ setdiff(gapminder_school$country, gapminder$country) %>%
   tbl_df()
 ```
 
-```{r warning=FALSE, message=FALSE}
-anti_join(gapminder, gapminder_tidyschool)
-```
-
-# Additional Demos
 
 ### gather() part 2
 
@@ -693,6 +702,12 @@ No rows indicate all of the rows in`gapminder_tidyschool` matches all the rows i
 
 ```
 
+
+```{r}
+gapminder %>% tbl_df()
+gapminder_school %>%  tbl_df()
+gapminder2 %>% tbl_df() 
+```
 
 ![modelstidy][modelstidy] 
 

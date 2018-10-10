@@ -33,7 +33,7 @@ Seevasant Indran
     -   [Super `%>%` pipe](#super-pipe)
 -   [The `tidyr` Functions](#the-tidyr-functions)
     -   [2 most important `tidyr` for data manipulation](#most-important-tidyr-for-data-manipulation)
--   [`tidyr` Demos](#tidyr-demos)
+-   [`tidyr::` demos](#tidyr-demos)
     -   [Some Data](#some-data)
     -   [gather()](#gather-1)
     -   [spread()](#spread-1)
@@ -45,10 +45,10 @@ Seevasant Indran
     -   [anti\_join()](#anti_join)
     -   [right\_join()](#right_join)
     -   [full\_join()](#full_join)
+-   [Bonus content](#bonus-content)
     -   [union()](#union)
     -   [intersect()](#intersect)
     -   [setdiff()](#setdiff)
--   [Additional Demos](#additional-demos)
     -   [gather() part 2](#gather-part-2)
     -   [gather() part 3 - define year using subset of `colnames`](#gather-part-3---define-year-using-subset-of-colnames)
     -   [spread() - part 2 with continent has the `colnames` and `meanSchool` as value](#spread---part-2-with-continent-has-the-colnames-and-meanschool-as-value)
@@ -87,7 +87,7 @@ The fundamental processes to follow to understand the knowledge and insight a da
 
 **Makes data compatible for processing such as mathematical functions, visualization, hence reveals information and insights.**
 
-#### Examples of a **Messy data** vs some **Tidy data**
+### Examples of a **Messy data** vs some **Tidy data**
 
 ![messytidt](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/messy_tidy_ex.png)
 
@@ -383,7 +383,17 @@ gpmd_cont <- gapminder %>%
 ``` r
 gapminder_school_filtered <- gapminder_school_filtered %>%
   mutate(continent = gpmd_cont$continent)
+  
+head(gapminder_school_filtered) 
 ```
+
+    ##       country 1972 1977 1982 1987 1992 1997 2002 2007 continent
+    ## 1 Afghanistan  1.1  1.4  1.8  2.1  2.3  2.6  2.9  3.2      Asia
+    ## 2     Albania  6.9  7.7  8.4  9.1  9.6 10.1 10.5 10.9    Europe
+    ## 3     Algeria  2.1  2.7  3.4  4.3  5.2  5.9  6.6  7.2    Africa
+    ## 4      Angola  2.5  3.1  3.8  4.4  4.8  5.3  5.7  6.0    Africa
+    ## 5   Argentina  7.3  8.0  8.6  9.1  9.6 10.1 10.6 11.0  Americas
+    ## 6   Australia 10.2 10.7 11.1 11.4 11.7 11.9 12.1 12.3   Oceania
 
 ### summarise()
 
@@ -497,8 +507,8 @@ Ussage - **`gather(data, key = "key", value = "value", ..., na.rm = FALSE, conve
 
 ------------------------------------------------------------------------
 
-`tidyr` Demos
-=============
+`tidyr::` demos
+===============
 
 ### Some Data
 
@@ -565,6 +575,8 @@ A `dplyr` join walkthrough
 ==========================
 
 ### Summary of the 9 joint function
+
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/joins.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/joins.png)
 
 1.  **`inner_join()`**
 2.  **`semi_join()`**
@@ -649,6 +661,25 @@ left_join(gapminder, gapminder_tidyschool)
 
 > anti\_join(x, y): Return all rows from x where there are not matching values in y, keeping just columns from x. This is a filtering join.
 
+``` r
+anti_join(gapminder, gapminder_tidyschool)
+```
+
+    ## # A tibble: 640 x 6
+    ##    country     continent  year lifeExp      pop gdpPercap
+    ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>
+    ##  1 Afghanistan Asia       1952    28.8  8425333      779.
+    ##  2 Afghanistan Asia       1957    30.3  9240934      821.
+    ##  3 Afghanistan Asia       1962    32.0 10267083      853.
+    ##  4 Afghanistan Asia       1967    34.0 11537966      836.
+    ##  5 Albania     Europe     1952    55.2  1282697     1601.
+    ##  6 Albania     Europe     1957    59.3  1476505     1942.
+    ##  7 Albania     Europe     1962    64.8  1728137     2313.
+    ##  8 Albania     Europe     1967    66.2  1984060     2760.
+    ##  9 Algeria     Africa     1952    43.1  9279525     2449.
+    ## 10 Algeria     Africa     1957    45.7 10270856     3014.
+    ## # ... with 630 more rows
+
 ### right\_join()
 
 > right\_join(x, y): Return all rows from y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned. This is a mutating join.
@@ -694,6 +725,11 @@ full_join(gapminder, gapminder_tidyschool)
     ##  9 Afghanistan Asia       1992    41.7 16317921      649.        2.3
     ## 10 Afghanistan Asia       1997    41.8 22227415      635.        2.6
     ## # ... with 1,694 more rows
+
+Bonus content
+=============
+
+![bonuscont](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png)
 
 ### union()
 
@@ -808,28 +844,6 @@ setdiff(gapminder_school$country, gapminder$country) %>%
     ##  9 Cyprus              
     ## 10 Czech Rep.          
     ## # ... with 32 more rows
-
-``` r
-anti_join(gapminder, gapminder_tidyschool)
-```
-
-    ## # A tibble: 640 x 6
-    ##    country     continent  year lifeExp      pop gdpPercap
-    ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>
-    ##  1 Afghanistan Asia       1952    28.8  8425333      779.
-    ##  2 Afghanistan Asia       1957    30.3  9240934      821.
-    ##  3 Afghanistan Asia       1962    32.0 10267083      853.
-    ##  4 Afghanistan Asia       1967    34.0 11537966      836.
-    ##  5 Albania     Europe     1952    55.2  1282697     1601.
-    ##  6 Albania     Europe     1957    59.3  1476505     1942.
-    ##  7 Albania     Europe     1962    64.8  1728137     2313.
-    ##  8 Albania     Europe     1967    66.2  1984060     2760.
-    ##  9 Algeria     Africa     1952    43.1  9279525     2449.
-    ## 10 Algeria     Africa     1957    45.7 10270856     3014.
-    ## # ... with 630 more rows
-
-Additional Demos
-================
 
 ### gather() part 2
 
@@ -948,5 +962,68 @@ anti_join(gapminder_tidyschool, gapminder) %>%
     ## <0 rows> (or 0-length row.names)
 
 No rows indicate all of the rows in`gapminder_tidyschool` matches all the rows in the gapminder dataset.
+
+``` r
+gapminder %>% tbl_df()
+```
+
+    ## # A tibble: 1,704 x 6
+    ##    country     continent  year lifeExp      pop gdpPercap
+    ##    <fct>       <fct>     <int>   <dbl>    <int>     <dbl>
+    ##  1 Afghanistan Asia       1952    28.8  8425333      779.
+    ##  2 Afghanistan Asia       1957    30.3  9240934      821.
+    ##  3 Afghanistan Asia       1962    32.0 10267083      853.
+    ##  4 Afghanistan Asia       1967    34.0 11537966      836.
+    ##  5 Afghanistan Asia       1972    36.1 13079460      740.
+    ##  6 Afghanistan Asia       1977    38.4 14880372      786.
+    ##  7 Afghanistan Asia       1982    39.9 12881816      978.
+    ##  8 Afghanistan Asia       1987    40.8 13867957      852.
+    ##  9 Afghanistan Asia       1992    41.7 16317921      649.
+    ## 10 Afghanistan Asia       1997    41.8 22227415      635.
+    ## # ... with 1,694 more rows
+
+``` r
+gapminder_school %>%  tbl_df()
+```
+
+    ## # A tibble: 175 x 41
+    ##    country `1970` `1971` `1972` `1973` `1974` `1975` `1976` `1977` `1978`
+    ##    <fct>    <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>  <dbl>
+    ##  1 Afghan…    1      1.1    1.1    1.2    1.3    1.3    1.4    1.4    1.5
+    ##  2 Albania    6.5    6.7    6.9    7      7.2    7.3    7.5    7.7    7.8
+    ##  3 Algeria    1.9    2      2.1    2.2    2.3    2.4    2.5    2.7    2.8
+    ##  4 Angola     2.3    2.4    2.5    2.7    2.8    2.9    3      3.1    3.2
+    ##  5 Antigu…    8      8.2    8.4    8.6    8.7    8.9    9.1    9.3    9.5
+    ##  6 Argent…    7      7.1    7.3    7.4    7.6    7.7    7.8    8      8.1
+    ##  7 Armenia    7.8    7.9    8.1    8.2    8.4    8.5    8.7    8.8    9  
+    ##  8 Austra…    9.9   10     10.2   10.3   10.4   10.5   10.6   10.7   10.8
+    ##  9 Austria    9.3    9.4    9.5    9.6    9.8    9.9   10     10.1   10.2
+    ## 10 Azerba…    7.6    7.8    8      8.2    8.4    8.6    8.8    8.9    9.1
+    ## # ... with 165 more rows, and 31 more variables: `1979` <dbl>,
+    ## #   `1980` <dbl>, `1981` <dbl>, `1982` <dbl>, `1983` <dbl>, `1984` <dbl>,
+    ## #   `1985` <dbl>, `1986` <dbl>, `1987` <dbl>, `1988` <dbl>, `1989` <dbl>,
+    ## #   `1990` <dbl>, `1991` <dbl>, `1992` <dbl>, `1993` <dbl>, `1994` <dbl>,
+    ## #   `1995` <dbl>, `1996` <dbl>, `1997` <dbl>, `1998` <dbl>, `1999` <dbl>,
+    ## #   `2000` <dbl>, `2001` <dbl>, `2002` <dbl>, `2003` <dbl>, `2004` <dbl>,
+    ## #   `2005` <dbl>, `2006` <dbl>, `2007` <dbl>, `2008` <dbl>, `2009` <dbl>
+
+``` r
+gapminder2 %>% tbl_df() 
+```
+
+    ## # A tibble: 1,064 x 7
+    ##    country     continent  year lifeExp      pop gdpPercap meanSchool
+    ##    <chr>       <fct>     <int>   <dbl>    <int>     <dbl>      <dbl>
+    ##  1 Afghanistan Asia       1972    36.1 13079460      740.        1.1
+    ##  2 Afghanistan Asia       1977    38.4 14880372      786.        1.4
+    ##  3 Afghanistan Asia       1982    39.9 12881816      978.        1.8
+    ##  4 Afghanistan Asia       1987    40.8 13867957      852.        2.1
+    ##  5 Afghanistan Asia       1992    41.7 16317921      649.        2.3
+    ##  6 Afghanistan Asia       1997    41.8 22227415      635.        2.6
+    ##  7 Afghanistan Asia       2002    42.1 25268405      727.        2.9
+    ##  8 Afghanistan Asia       2007    43.8 31889923      975.        3.2
+    ##  9 Albania     Europe     1972    67.7  2263554     3313.        6.9
+    ## 10 Albania     Europe     1977    68.9  2509048     3533.        7.7
+    ## # ... with 1,054 more rows
 
 ![modelstidy](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
