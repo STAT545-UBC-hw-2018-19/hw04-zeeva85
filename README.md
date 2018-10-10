@@ -1,19 +1,24 @@
 About this page
 ================
 
-Welcome to my STAT545 private repository. This repository will primarily contain the study materials and assignments associated with [STAT545][Stat545Link].
+Welcome to my STAT545 private repository. This repository will primarily contain the study materials and assignments associated with [STAT545][Stat545Link]. 
 
-These are the links to the privious weeks participation for the STAT545A class and the `R markdown` file for the homework 002.
+Links to the `.md` and `.rmd` "Homework 04: Tidy data and joins"" for the STAT545A.
 
-[hw004.md][hw004.md] \| [hw004.rmd][hw004.rmd]
+[hw004.md][hw004.md] \| [hw004.rmd][hw004.rmd]  
 
+[hw001.md][hw001.md] \| [hw002.md][hw002.md] \| [hw003.md][hw003.md]  
 
-[Stat545Link]: http://stat545.com/Classroom/ "STAT 545A: Exploratory Data Analysis"
-[STAT545A_participation]: https://github.com/zeeva85/STAT545A_participation
+[STAT545A_participation][STAT545A_participation]
+
+[hw001.md]: https://github.com/STAT545-UBC-students/hw01-zeeva85/blob/master/hw01_gapminder.md
+[hw002.md]: https://github.com/STAT545-UBC-students/hw02-zeeva85/blob/master/hw02_gapminder.md
+[hw003.md]: https://github.com/STAT545-UBC-students/hw03-zeeva85/blob/master/hw03_gapminder.md
+
 [hw004.md]: https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/hw04_gapmider.md
 [hw004.rmd]: https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/hw04_gapmider.Rmd
 
-
+[STAT545A_participation]: https://github.com/zeeva85/STAT545A_participation
 
 About me
 --------
