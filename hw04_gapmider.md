@@ -576,7 +576,7 @@ A `dplyr` join walkthrough
 
 ### Summary of the 9 joint function
 
-[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/joins.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/joins.png)
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/joins.png" width="500" height="300"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/joins.png)
 
 1.  **`inner_join()`**
 2.  **`semi_join()`**
