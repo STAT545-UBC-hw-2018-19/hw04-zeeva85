@@ -3,11 +3,12 @@ A not so minimal guide to `readr`, `dplyr` and `tidyr`
 Seevasant Indran
 09 October, 2018
 
--   [WARNING!! package+ CONTENT](#warning-package-content)
+-   [WARNING!! install.packages()+ CONTENT](#warning-install.packages-content)
 -   [A not so minimal guide to `readr`, `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-readr-dplyr-and-tidyr.)
     -   [Why Data Manipulation](#why-data-manipulation)
-    -   [Examples of a **Messy data** vs some **Tidy data**](#examples-of-a-messy-data-vs-some-tidy-data)
-    -   [Gapminder tidy `<-` untidy walkthough](#gapminder-tidy---untidy-walkthough)
+    -   [Examples of **Messy** vs **Tidy** data](#examples-of-messy-vs-tidy-data)
+    -   [A gapminder tidy `<-` untidy walkthough](#a-gapminder-tidy---untidy-walkthough)
+        -   [Untidy gapminder (above) vs tidy gapminder (below).](#untidy-gapminder-above-vs-tidy-gapminder-below.)
 -   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
     -   [Summary of the main `dplyr` Functions](#summary-of-the-main-dplyr-functions)
 -   [Relationship to the other functions](#relationship-to-the-other-functions)
@@ -18,7 +19,7 @@ Seevasant Indran
     -   [Summary of the `tidyr` main Functions](#summary-of-the-tidyr-main-functions)
     -   [\# The `dplyr` Functions](#the-dplyr-functions)
         -   [Most usefull `dplyr` functions for data manipulation](#most-usefull-dplyr-functions-for-data-manipulation)
--   [`dplyr::` demo](#dplyr-demo)
+-   [`dplyr::`](#dplyr)
     -   [tbl\_df()](#tbl_df)
     -   [`rename()`](#rename-1)
     -   [filter()](#filter-1)
@@ -31,7 +32,7 @@ Seevasant Indran
     -   [Super `%>%` pipe](#super-pipe)
 -   [The `tidyr` Functions](#the-tidyr-functions)
     -   [2 most important `tidyr` for data manipulation](#most-important-tidyr-for-data-manipulation)
--   [`tidyr::` demos](#tidyr-demos)
+-   [`tidyr::`](#tidyr)
     -   [Some Data](#some-data)
     -   [gather()](#gather-1)
     -   [spread()](#spread-1)
@@ -55,7 +56,7 @@ Seevasant Indran
     -   [left\_join() part 2](#left_join-part-2)
     -   [anti\_join() part 2](#anti_join-part-2)
 
-#### WARNING!! package+ CONTENT
+#### WARNING!! install.packages()+ CONTENT
 
 Package needed:-
 - [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [tibble](http://tibble.tidyverse.org/))
@@ -85,7 +86,7 @@ The fundamental processes to follow to understand the knowledge and insight a da
 
 **Makes data compatible for processing such as mathematical functions, visualization, hence reveals information and insights.**
 
-### Examples of a **Messy data** vs some **Tidy data**
+### Examples of **Messy** vs **Tidy** data
 
 ![messytidt](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/messy_tidy_ex.png)
 
@@ -101,14 +102,20 @@ In tidy data:
 
 ![tidydat](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/tidy_defin.png)
 
-Gapminder tidy `<-` untidy walkthough
--------------------------------------
+A gapminder tidy `<-` untidy walkthough
+---------------------------------------
 
 [<img align ="left" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png)
 
                                                                                                         
 
-> **Untidy gapminder (above) dataset to the tidy gapminder (below)**
+##### Untidy gapminder (above) vs tidy gapminder (below).
+
+Notice the differences:-
+
+-   dimensions
+-   observations
+-   variables
 
                                                                                                         
 
@@ -249,8 +256,8 @@ dim(gapminder_school) # dimension of the data, 175 countries and 41 years
 
     ## [1] 175  41
 
-`dplyr::` demo
-==============
+`dplyr::`
+=========
 
 ### tbl\_df()
 
@@ -526,8 +533,8 @@ Ussage - **`gather(data, key = "key", value = "value", ..., na.rm = FALSE, conve
 
 ------------------------------------------------------------------------
 
-`tidyr::` demos
-===============
+`tidyr::`
+=========
 
 ### Some Data
 

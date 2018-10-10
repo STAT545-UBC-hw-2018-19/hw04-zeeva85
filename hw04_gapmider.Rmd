@@ -7,9 +7,7 @@ output:
     toc: yes
 ---
 
-
-
-#### WARNING!! package+ CONTENT
+#### WARNING!! install.packages()+ CONTENT
 
 Package needed:-  
 -   [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [tibble](http://tibble.tidyverse.org/))  
@@ -70,7 +68,7 @@ The fundamental processes to follow to understand the knowledge and insight a da
 
 **Makes data compatible for processing such as mathematical functions, visualization, hence reveals information and insights.**
 
-### Examples of a **Messy data** vs some **Tidy data**
+### Examples of **Messy** vs **Tidy** data
 
 ![messytidt][messytidt] 
 
@@ -91,13 +89,18 @@ In tidy data:
 
 [tidydat]:https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/tidy_defin.png
 
-## Gapminder tidy `<-` untidy walkthough
+## A gapminder tidy `<-` untidy walkthough
 
 [<img align ="left" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png)   
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    
-> **Untidy gapminder (above) dataset to the tidy gapminder (below)**
+##### Untidy gapminder (above) vs tidy gapminder (below). 
+Notice the differences:-   
+  
+- dimensions   
+- observations  
+- variables    
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -266,7 +269,7 @@ dim(gapminder_school) # dimension of the data, 175 countries and 41 years
 ```
 
 
-# `dplyr::` demo 
+# `dplyr::` 
 
 ### tbl_df()
 
@@ -468,7 +471,7 @@ Ussage - **`spread(data, key, value, fill = NA, convert = FALSE, drop = TRUE, se
 ---
 
 
-# `tidyr::` demos
+# `tidyr::`
 ### Some Data
 
 
