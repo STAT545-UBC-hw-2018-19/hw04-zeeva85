@@ -3,6 +3,11 @@ A not so minimal guide to `readr`, `dplyr` and `tidyr`
 Seevasant Indran
 09 October, 2018
 
+<details>
+  <summary>
+Table of content
+  </summary>
+
 -   [WARNING!! install.packages()+ CONTENT](#warning-install.packages-content)
 -   [A not so minimal guide to `readr`, `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-readr-dplyr-and-tidyr.)
     -   [Why Data Manipulation](#why-data-manipulation)
@@ -55,6 +60,7 @@ Seevasant Indran
     -   [semi\_join() part 2](#semi_join-part-2)
     -   [left\_join() part 2](#left_join-part-2)
     -   [anti\_join() part 2](#anti_join-part-2)
+</details>
 
 #### WARNING!! install.packages()+ CONTENT
 
