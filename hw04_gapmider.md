@@ -43,10 +43,11 @@ Seevasant Indran
     -   [anti\_join()](#anti_join)
     -   [right\_join()](#right_join)
     -   [full\_join()](#full_join)
--   [Bonus content](#bonus-content)
+-   [`dplyr::` extended](#dplyr-extended)
     -   [union()](#union)
     -   [intersect()](#intersect)
     -   [setdiff()](#setdiff)
+-   [Bonus content](#bonus-content)
     -   [gather() part 2](#gather-part-2)
     -   [gather() part 3 - define year using subset of `colnames`](#gather-part-3---define-year-using-subset-of-colnames)
     -   [spread() - part 2 with continent has the `colnames` and `meanSchool` as value](#spread---part-2-with-continent-has-the-colnames-and-meanschool-as-value)
@@ -752,8 +753,8 @@ full_join(gapminder, gapminder_tidyschool)
     ## 10 Afghanistan Asia       1997    41.8 22227415      635.        2.6
     ## # ... with 1,694 more rows
 
-Bonus content
-=============
+`dplyr::` extended
+==================
 
 [<img align ="center" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png" width="600" height="300"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png)
 
@@ -870,6 +871,9 @@ setdiff(gapminder_school$country, gapminder$country) %>%
     ##  9 Cyprus              
     ## 10 Czech Rep.          
     ## # ... with 32 more rows
+
+Bonus content
+=============
 
 ### gather() part 2
 

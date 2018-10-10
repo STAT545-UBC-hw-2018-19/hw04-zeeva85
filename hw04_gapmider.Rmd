@@ -583,7 +583,7 @@ right_join(gapminder, gapminder_tidyschool)
 full_join(gapminder, gapminder_tidyschool)
 ```
 
-# Bonus content
+# `dplyr::` extended
 
 [<img align ="center" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png" width="600" height="300"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png)  
 
@@ -633,6 +633,7 @@ setdiff(gapminder_school$country, gapminder$country) %>%
   tbl_df()
 ```
 
+# Bonus content
 
 ### gather() part 2
 
