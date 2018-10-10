@@ -3,11 +3,6 @@ A not so minimal guide to `readr`, `dplyr` and `tidyr`
 Seevasant Indran
 09 October, 2018
 
-<details>
-  <summary>
-Table of content
-  </summary>   
-      
 -   [WARNING!! install.packages()+ CONTENT](#warning-install.packages-content)
 -   [A not so minimal guide to `readr`, `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-readr-dplyr-and-tidyr.)
     -   [Why Data Manipulation](#why-data-manipulation)
@@ -15,15 +10,15 @@ Table of content
     -   [A gapminder tidy `<-` untidy walkthough](#a-gapminder-tidy---untidy-walkthough)
         -   [Untidy gapminder (above) vs tidy gapminder (below).](#untidy-gapminder-above-vs-tidy-gapminder-below.)
 -   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
-    -   [Summary of the main `dplyr` Functions](#summary-of-the-main-dplyr-functions)
+    -   [Summary of the main `dplyr` functions](#summary-of-the-main-dplyr-functions)
 -   [Relationship to the other functions](#relationship-to-the-other-functions)
     -   [Tibble diff](#tibble-diff)
     -   [{base} `R` and `dplyr`](#base-r-and-dplyr)
     -   [Chaining](#chaining)
 -   [A `tidyr` walkthrough](#a-tidyr-walkthrough)
-    -   [Summary of the `tidyr` main Functions](#summary-of-the-tidyr-main-functions)
-    -   [\# The `dplyr` Functions](#the-dplyr-functions)
-        -   [Most usefull `dplyr` functions for data manipulation](#most-usefull-dplyr-functions-for-data-manipulation)
+    -   [Summary of the `tidyr` main functions](#summary-of-the-tidyr-main-functions)
+-   [The `dplyr` Functions](#the-dplyr-functions)
+    -   [Most usefull `dplyr` functions for data manipulation](#most-usefull-dplyr-functions-for-data-manipulation)
 -   [`dplyr::`](#dplyr)
     -   [tbl\_df()](#tbl_df)
     -   [`rename()`](#rename-1)
@@ -59,8 +54,7 @@ Table of content
     -   [inner\_join() part 2](#inner_join-part-2)
     -   [semi\_join() part 2](#semi_join-part-2)
     -   [left\_join() part 2](#left_join-part-2)
-    -   [anti\_join() part 2](#anti_join-part-2)   
-</details>  
+    -   [anti\_join() part 2](#anti_join-part-2)
 
 #### WARNING!! install.packages()+ CONTENT
 
@@ -132,7 +126,7 @@ Notice the differences:-
 A `dplyr` walkthrough
 =====================
 
-### Summary of the main `dplyr` Functions
+### Summary of the main `dplyr` functions
 
 #### Quick data.frame
 
@@ -188,7 +182,7 @@ List of **dplyr** functions and the `{base}R` functions they're related to:
 A `tidyr` walkthrough
 =====================
 
-### Summary of the `tidyr` main Functions
+### Summary of the `tidyr` main functions
 
 List of **tidyr** functions and the relationship to the **reshape2** functions:
 
@@ -197,8 +191,8 @@ List of **tidyr** functions and the relationship to the **reshape2** functions:
 | `melt`            | `gather`       | long format\*  |
 | `dcast`           | `spread`       | wide format\*  |
 
-\# The `dplyr` Functions
-------------------------
+The `dplyr` Functions
+=====================
 
 ### Most usefull `dplyr` functions for data manipulation
 

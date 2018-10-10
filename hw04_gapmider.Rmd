@@ -111,7 +111,7 @@ Notice the differences:-
 
 # A `dplyr` walkthrough
   
-### Summary of the main `dplyr` Functions
+### Summary of the main `dplyr` functions
 
 #### Quick data.frame
 `tbl_df`
@@ -162,7 +162,7 @@ print(conclusion)
 
 # A `tidyr` walkthrough   
     
-### Summary of the `tidyr` main Functions
+### Summary of the `tidyr` main functions
 List of **tidyr** functions and the relationship to the **reshape2** functions:
 
 reshape2 Function    | tidyr Function | Special Powers
@@ -171,9 +171,8 @@ reshape2 Function    | tidyr Function | Special Powers
 `dcast`              |  `spread`         | wide format\*
 
 
-# The `dplyr` Functions
----
-
+# The `dplyr` Functions   
+   
 ### Most usefull `dplyr` functions for data manipulation
 
 #### **`filter`**
