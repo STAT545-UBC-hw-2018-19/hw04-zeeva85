@@ -22,7 +22,7 @@ Table of contents
     -   [Most usefull `dplyr` functions for data manipulation](#most-usefull-dplyr-functions-for-data-manipulation)
 -   [`dplyr::`](#dplyr)
     -   [tbl\_df()](#tbl_df)
-    -   [`rename()`](#rename-1)
+    -   [rename()](#rename-1)
     -   [filter()](#filter-1)
     -   [select()](#select)
     -   [arrange()](#arrange)
@@ -303,7 +303,7 @@ head(rownames_to_column(gapminder_school_tbl), n = 10)
     ## #   `2000` <dbl>, `2001` <dbl>, `2002` <dbl>, `2003` <dbl>, `2004` <dbl>,
     ## #   `2005` <dbl>, `2006` <dbl>, `2007` <dbl>, `2008` <dbl>, `2009` <dbl>
 
-### `rename()`
+### rename()
 
 Use the `dplyr::rename` to rename the "Row Labels"" column to "country""
 
