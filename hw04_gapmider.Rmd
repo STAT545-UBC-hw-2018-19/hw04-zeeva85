@@ -274,7 +274,7 @@ head(rownames_to_column(gapminder_school_tbl), n = 10)
 ```
 
 
-### `rename()`
+### rename()
 
 Use the `dplyr::rename` to rename the "Row Labels"" column to "country""
 
