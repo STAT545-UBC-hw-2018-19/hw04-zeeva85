@@ -16,8 +16,9 @@ Seevasant Indran
     -   [Tibble diff](#tibble-diff)
     -   [{base} `R` and `dplyr`](#base-r-and-dplyr)
     -   [Chaining](#chaining)
-    -   [A `tidyr` walkthrough](#a-tidyr-walkthrough)
--   [Summary of the `tidyr` main Functions](#summary-of-the-tidyr-main-functions)
+-   [What are we going to do](#what-are-we-going-to-do)
+-   [A `tidyr` walkthrough](#a-tidyr-walkthrough)
+    -   [Summary of the `tidyr` main Functions](#summary-of-the-tidyr-main-functions)
     -   [\# The `dplyr` Functions](#the-dplyr-functions)
         -   [Most usefull `dplyr` functions for data manipulation](#most-usefull-dplyr-functions-for-data-manipulation)
 -   [`dplyr::` demo](#dplyr-demo)
@@ -153,10 +154,17 @@ pic
 
 *Basically previous input in chain supplied as argument 1 to function on right side.*
 
-### A `tidyr` walkthrough
+What are we going to do
+=======================
 
-Summary of the `tidyr` main Functions
-=====================================
+[<img align ="left" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png)
+
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapminderschooltidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapminderschooltidy.png)
+
+A `tidyr` walkthrough
+=====================
+
+### Summary of the `tidyr` main Functions
 
 List of **tidyr** functions and the relationship to the **reshape2** functions:
 

@@ -136,10 +136,17 @@ pic
 
 *Basically previous input in chain supplied as argument 1 to function on right side.*
 
+# What are we going to do 
 
-### A `tidyr` walkthrough
+[<img align ="left" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png)  
+  
+  
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapminderschooltidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapminderschooltidy.png)  
+  
 
-# Summary of the `tidyr` main Functions
+# A `tidyr` walkthrough
+
+### Summary of the `tidyr` main Functions
 List of **tidyr** functions and the relationship to the **reshape2** functions:
 
 reshape2 Function    | tidyr Function | Special Powers
