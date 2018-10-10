@@ -7,7 +7,14 @@ output:
     toc: yes
 ---
 
-#### WARNING!! install.packages()+ CONTENT
+
+
+<details>
+<summary>
+
+#### WARNING!! install.packages()+ CONTENT ME
+</summary>
+<p>
 
 Package needed:-  
 -   [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [tibble](http://tibble.tidyverse.org/))  
@@ -18,7 +25,8 @@ Package needed:-
 ```
 install.packages("packageName", dependencies = TRUE)
 ```  
-   
+</p>
+</details>     
    
 ```{r setupchunk, global_options, include=FALSE}
 ## assign TRUE and FALSE value to a variable for chunk evaluation
