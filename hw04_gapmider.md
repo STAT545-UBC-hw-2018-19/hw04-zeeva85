@@ -1,4 +1,4 @@
-Homework 04: Tidy data and joins
+A not so minimal guide to `readr`, `dplyr` and `tidyr`
 ================
 Seevasant Indran
 09 October, 2018
