@@ -1,6 +1,5 @@
 A not so minimal guide to `readr`, `dplyr` and `tidyr`
 ================
-Seevasant Indran
 09 October, 2018
 
 -   [Why Data Manipulation](#why-data-manipulation)
