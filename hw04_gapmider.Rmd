@@ -436,7 +436,7 @@ reshape2 Function    | tidyr Function | Special Powers
 
 # The `tidyr` Functions
 
-### 2 most important `tidyr` for data manipulation
+### Important `tidyr` for data manipulation
 
 ---
 

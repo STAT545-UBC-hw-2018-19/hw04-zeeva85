@@ -29,7 +29,7 @@ Seevasant Indran
 -   [A `tidyr` walkthrough](#a-tidyr-walkthrough)
     -   [Summary of the `tidyr` main functions](#summary-of-the-tidyr-main-functions)
 -   [The `tidyr` Functions](#the-tidyr-functions)
-    -   [2 most important `tidyr` for data manipulation](#most-important-tidyr-for-data-manipulation)
+    -   [Important `tidyr` for data manipulation](#important-tidyr-for-data-manipulation)
 -   [`tidyr::`](#tidyr)
     -   [Some Data](#some-data)
     -   [gather()](#gather-1)
@@ -502,7 +502,7 @@ List of **tidyr** functions and the relationship to the **reshape2** functions:
 The `tidyr` Functions
 =====================
 
-### 2 most important `tidyr` for data manipulation
+### Important `tidyr` for data manipulation
 
 ------------------------------------------------------------------------
 
