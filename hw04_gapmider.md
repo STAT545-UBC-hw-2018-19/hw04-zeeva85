@@ -729,7 +729,7 @@ full_join(gapminder, gapminder_tidyschool)
 Bonus content
 =============
 
-![](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png=100x20)
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png=100x20" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png=100x20)
 
 ### union()
 
