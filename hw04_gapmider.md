@@ -6,7 +6,7 @@ Seevasant Indran
 -   [Why Data Manipulation](#why-data-manipulation)
     -   [Examples of **Messy** vs **Tidy** data](#examples-of-messy-vs-tidy-data)
     -   [A gapminder tidy `<-` untidy walkthough](#a-gapminder-tidy---untidy-walkthough)
-        -   [Untidy gapminder (above) vs tidy gapminder (below), gapminder2 dataset is in the [ending credits](#ending-credits-gapminder2) section.](#untidy-gapminder-above-vs-tidy-gapminder-below-gapminder2-dataset-is-in-the-ending-credits-section.)
+        -   [Untidy gapminder (above) vs tidy gapminder (below), gapminder2 dataset is in [ending credits](#ending-credits-gapminder2) section.](#untidy-gapminder-above-vs-tidy-gapminder-below-gapminder2-dataset-is-in-ending-credits-section.)
 -   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
     -   [Summary of the main `dplyr` functions](#summary-of-the-main-dplyr-functions)
 -   [Relationship to the other functions](#relationship-to-the-other-functions)
@@ -56,7 +56,7 @@ Seevasant Indran
     -   [anti\_join() part 2](#anti_join-part-2)
 -   [Ending credits: gapminder2](#ending-credits-gapminder2)
 
-<details open> <summary> Packages required </summary>
+<details> <summary> Packages required </summary>
 
 Package needed:-
 - [tidyverse](http://tidyverse.tidyverse.org/) (includes [ggplot2](http://ggplot2.tidyverse.org/), [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), [readr](http://readr.tidyverse.org/), [tibble](http://tibble.tidyverse.org/))
@@ -108,7 +108,7 @@ A gapminder tidy `<-` untidy walkthough
 
                                                                                                         
 
-##### Untidy gapminder (above) vs tidy gapminder (below), gapminder2 dataset is in the [ending credits](#ending-credits-gapminder2) section.
+##### Untidy gapminder (above) vs tidy gapminder (below), gapminder2 dataset is in [ending credits](#ending-credits-gapminder2) section.
 
 Notice the differences:-
 
