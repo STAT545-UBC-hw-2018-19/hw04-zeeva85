@@ -560,7 +560,7 @@ full_join(gapminder, gapminder_tidyschool)
 
 # Bonus content
 
-![bonuscontent](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png =100x20)
+![](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png)
   
 ### union()  
 > rows that appear in both `x` and `y`
@@ -644,7 +644,7 @@ gapminder_school_filtered %>%
 
 ### inner_join() part 2
 
-```{r warning=FALSE, message=TRUE}
+```{r warning=FALSE, message=FALSE}
 inner_join(gapminder_tidyschool, gapminder) %>% 
   head()
 ```

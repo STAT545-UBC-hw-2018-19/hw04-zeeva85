@@ -729,7 +729,7 @@ full_join(gapminder, gapminder_tidyschool)
 Bonus content
 =============
 
-![bonuscontent](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png%20=100x20)
+![](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/binds.png)
 
 ### union()
 
@@ -904,8 +904,6 @@ gapminder_school_filtered %>%
 inner_join(gapminder_tidyschool, gapminder) %>% 
   head()
 ```
-
-    ## Joining, by = c("country", "continent", "year")
 
     ##       country continent year meanSchool lifeExp      pop  gdpPercap
     ## 1 Afghanistan      Asia 1972        1.1  36.088 13079460   739.9811
