@@ -6,7 +6,8 @@ Seevasant Indran
 <details>
   <summary>
 Table of content
-  </summary>  
+  </summary>   
+      
 -   [WARNING!! install.packages()+ CONTENT](#warning-install.packages-content)
 -   [A not so minimal guide to `readr`, `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-readr-dplyr-and-tidyr.)
     -   [Why Data Manipulation](#why-data-manipulation)
@@ -58,7 +59,8 @@ Table of content
     -   [inner\_join() part 2](#inner_join-part-2)
     -   [semi\_join() part 2](#semi_join-part-2)
     -   [left\_join() part 2](#left_join-part-2)
-    -   [anti\_join() part 2](#anti_join-part-2)
+    -   [anti\_join() part 2](#anti_join-part-2)  
+      
 </details>  
 
 #### WARNING!! install.packages()+ CONTENT
