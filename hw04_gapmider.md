@@ -7,7 +7,8 @@ Seevasant Indran
 -   [A not so minimal guide to `readr`, `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-readr-dplyr-and-tidyr.)
     -   [Why Data Manipulation](#why-data-manipulation)
     -   [Examples of a **Messy data** vs some **Tidy data**](#examples-of-a-messy-data-vs-some-tidy-data)
-    -   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
+    -   [Gapminder tidy `<-` untidy walkthough](#gapminder-tidy---untidy-walkthough)
+        -   [A `dplyr` walkthrough](#a-dplyr-walkthrough)
 -   [Summary of the main `dplyr` Functions](#summary-of-the-main-dplyr-functions)
     -   [Quick data.frame](#quick-data.frame)
     -   [The most useful `dplyr` function](#the-most-useful-dplyr-function)
@@ -16,7 +17,6 @@ Seevasant Indran
     -   [Tibble diff](#tibble-diff)
     -   [{base} `R` and `dplyr`](#base-r-and-dplyr)
     -   [Chaining](#chaining)
--   [What are we going to do](#what-are-we-going-to-do)
 -   [A `tidyr` walkthrough](#a-tidyr-walkthrough)
     -   [Summary of the `tidyr` main Functions](#summary-of-the-tidyr-main-functions)
     -   [\# The `dplyr` Functions](#the-dplyr-functions)
@@ -104,6 +104,21 @@ In tidy data:
 
 ![tidydat](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/tidy_defin.png)
 
+Gapminder tidy `<-` untidy walkthough
+-------------------------------------
+
+[<img align ="left" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png)
+
+                                                                                                        
+
+> Untidy gapminder (above) dataset to the tidy gapminder (below)
+
+                                                                                                        
+
+[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapminderschooltidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapminderschooltidy.png)
+
+                                                                        
+
 ### A `dplyr` walkthrough
 
 Summary of the main `dplyr` Functions
@@ -153,12 +168,6 @@ List of **dplyr** functions and the `{base}R` functions they're related to:
 pic
 
 *Basically previous input in chain supplied as argument 1 to function on right side.*
-
-What are we going to do
-=======================
-
-[<img align ="left" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapmiderschooluntidy.png)
-[<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapminderschooltidy.png" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/gapminderschooltidy.png)
 
 A `tidyr` walkthrough
 =====================
