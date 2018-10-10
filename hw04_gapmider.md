@@ -3,8 +3,7 @@ A not so minimal guide to `readr`, `dplyr` and `tidyr`
 Seevasant Indran
 09 October, 2018
 
--   [A not so minimal guide to `readr`, `dplyr` and `tidyr`.](#a-not-so-minimal-guide-to-readr-dplyr-and-tidyr.)
-    -   [Why Data Manipulation](#why-data-manipulation)
+-   [Why Data Manipulation](#why-data-manipulation)
     -   [Examples of **Messy** vs **Tidy** data](#examples-of-messy-vs-tidy-data)
     -   [A gapminder tidy `<-` untidy walkthough](#a-gapminder-tidy---untidy-walkthough)
         -   [Untidy gapminder (above) vs tidy gapminder (below).](#untidy-gapminder-above-vs-tidy-gapminder-below.)
@@ -69,8 +68,8 @@ Package needed:-
 
 </details>
 
-A not so minimal guide to `readr`, `dplyr` and `tidyr`.
-=======================================================
+Why Data Manipulation
+=====================
 
 [<img align ="right" src="https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg" width="600" height="250"/>](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
 
@@ -80,8 +79,6 @@ The fundamental processes to follow to understand the knowledge and insight a da
 2.  Data visualization
 3.  Statistical analysis/modeling
 4.  Organization of results
-
-#### Why Data Manipulation
 
 > 80% of data analysis is spent on the process of cleaning and preparing the data. (Dasu and Johnson, 2003)
 
