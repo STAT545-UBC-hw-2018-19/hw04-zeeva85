@@ -9,7 +9,7 @@ output:
   
 <details>
   <summary>
-**required packages**
+click for required packages
   </summary>  
      
 Package needed:-   
