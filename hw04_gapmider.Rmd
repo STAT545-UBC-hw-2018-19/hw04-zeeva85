@@ -6,9 +6,6 @@ output:
   github_document:  
     toc: yes
 ---
-       
-       
-       
    
 <details open>
   <summary>
