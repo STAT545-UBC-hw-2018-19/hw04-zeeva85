@@ -1025,5 +1025,3 @@ gapminder2 %>% tbl_df()
     ##  9 Albania     Europe     1972    67.7  2263554     3313.        6.9
     ## 10 Albania     Europe     1977    68.9  2509048     3533.        7.7
     ## # ... with 1,054 more rows
-
-![modelstidy](https://github.com/STAT545-UBC-students/hw04-zeeva85/blob/master/figs/models_to_tidy_dataframes.jpg)
