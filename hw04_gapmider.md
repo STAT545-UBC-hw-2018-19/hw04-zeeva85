@@ -25,7 +25,7 @@ Seevasant Indran
     -   [filter()](#filter-1)
     -   [select()](#select)
     -   [arrange()](#arrange)
-    -   [chaining()](#chaining-1)
+    -   [%&gt;%](#section)
     -   [mutate()](#mutate-1)
     -   [summarise()](#summarise-1)
     -   [group\_by()](#group_by)
@@ -390,7 +390,7 @@ gapminder_school_filtered %>%
 
 Some live commetary.. Look at Niger, mean years in school for people aged between 25 - 34 is just 2.5 years!! in 2007.
 
-### chaining()
+### %&gt;%
 
 ``` r
 ## {base} R way to filter countries that are in both gapminder and gapminder school dataset and store into country
